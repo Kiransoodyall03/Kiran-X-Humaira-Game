@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Month-One Dev Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f1e7; --panel:#fffdf8; --ink:#1f1a17; --muted:#6b625a; --line:#e3d9c8;
+  --accent:#a3322a; --accent-soft:#f3dcd6; --p:#2f5d8a; --p-soft:#dbe6f1; --a:#6a7f3a; --a-soft:#e5ebd5;
+  --both:#8a5a1f; --both-soft:#f1e3cc; --code:#efe7d8;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16130f; --panel:#1f1b16; --ink:#efe7dc; --muted:#a89d90; --line:#352e26;
+    --accent:#e0675c; --accent-soft:#3d211d; --p:#86b2dc; --p-soft:#1c2a38; --a:#b2c77d; --a-soft:#242b18;
+    --both:#e0b070; --both-soft:#362a18; --code:#2a241d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16130f; --panel:#1f1b16; --ink:#efe7dc; --muted:#a89d90; --line:#352e26;
+  --accent:#e0675c; --accent-soft:#3d211d; --p:#86b2dc; --p-soft:#1c2a38; --a:#b2c77d; --a-soft:#242b18;
+  --both:#e0b070; --both-soft:#362a18; --code:#2a241d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px 80px}
+header.hero{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-family:"Shippori Mincho",serif;font-weight:800;font-size:clamp(30px,5vw,46px);line-height:1.15;margin:8px 0 12px}
+h2{font-family:"Shippori Mincho",serif;font-size:26px;margin:0 0 6px}
+h3{font-size:15px;margin:22px 0 8px}
+.lede{color:var(--muted);max-width:720px;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:var(--panel);border:1px solid var(--line);font-size:13px}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px;letter-spacing:.04em}
+.tag.p{background:var(--p-soft);color:var(--p)} .tag.a{background:var(--a-soft);color:var(--a)} .tag.both{background:var(--both-soft);color:var(--both)}
+nav.toc{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);margin:0 -16px;padding:10px 16px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+nav.toc a{white-space:nowrap;text-decoration:none;color:var(--muted);font-size:13px;padding:5px 10px;border-radius:8px}
+nav.toc a:hover{background:var(--panel);color:var(--ink)}
+section{padding:40px 0 8px;scroll-margin-top:50px}
+.sub{color:var(--muted);margin:0 0 18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.outcome{display:flex;gap:12px;align-items:flex-start}
+.num{flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:600;display:grid;place-items:center;font-size:13px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:none}
+code{font-family:"JetBrains Mono",monospace;font-size:12.5px;background:var(--code);padding:1px 5px;border-radius:5px}
+ul{padding-left:20px;margin:6px 0} li{margin:3px 0}
+.rule{border-left:3px solid var(--accent);padding:10px 14px;background:var(--panel);border-radius:0 10px 10px 0;margin:10px 0}
+/* weeks */
+.weektabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.weektabs button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:7px 12px;border-radius:10px;cursor:pointer}
+.weektabs button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.week{display:none}.week.on{display:block}
+.weekhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:12px}
+.weekhead h3{margin:0;font-family:"Shippori Mincho",serif;font-size:21px}
+.progress{font-size:13px;color:var(--muted)}
+.bar{height:6px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:4px;width:160px}
+.bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+.lane h4{margin:0 0 8px;display:flex;align-items:center;gap:8px;font-size:14px}
+.task{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-top:1px dashed var(--line)}
+.task:first-of-type{border-top:none}
+.task input{margin-top:4px;accent-color:var(--accent);width:16px;height:16px;flex:none}
+.task label{cursor:pointer}
+.task input:checked + label{color:var(--muted);text-decoration:line-through}
+.exit{margin-top:14px;padding:12px 16px;border-radius:12px;background:var(--accent-soft);color:var(--ink)}
+.exit b{color:var(--accent)}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0 8px}
+.timeline div{padding:10px 12px;border-radius:10px;background:var(--panel);border:1px solid var(--line);font-size:13px}
+.timeline b{display:block;font-size:12px;color:var(--accent);letter-spacing:.05em;text-transform:uppercase}
+@media (max-width:640px){.timeline{grid-template-columns:repeat(2,1fr)}}
+.zones{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}
+.zones div{border-radius:10px;padding:10px;font-size:13px;text-align:center}
+.zones .root{grid-column:1/-1;background:var(--p-soft);color:var(--p)}
+footer{margin-top:50px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:18px}
+.themebtn{position:fixed;right:16px;bottom:16px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:8px 12px;font:inherit;font-size:13px;cursor:pointer}
+@media print{nav.toc,.themebtn,.weektabs{display:none}.week{display:block;margin-bottom:24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Soul Sword Game · Pre-production</div>
+  <h1>Month-One Dev Plan</h1>
+  <p class="lede">Four weeks of pre-production that end in a playable greybox duel, a proven Blender→Godot pipeline, v1 design docs and a locked vertical-slice scope, organised so the programmer and the modeler can work at the same time without touching each other's files.</p>
+  <div class="meta">
+    <span class="chip">📅 Nov 24 – Dec 21, 2026</span>
+    <span class="chip"><span class="tag p">P</span> Kiran · programmer · Godot + Claude Code</span>
+    <span class="chip"><span class="tag a">A</span> Humaira · designer · model, rig, animate</span>
+    <span class="chip">⏱ ~15–20 h/week each (~70 h)</span>
+    <span class="chip">⚙ Godot 4.7.2</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <a href="#outcomes">Outcomes</a>
+  <a href="#schedule">Weekly schedule</a>
+  <a href="#rules">Parallel-work rules</a>
+  <a href="#ownership">Ownership</a>
+  <a href="#spec">Asset contract</a>
+  <a href="#docs">Design docs</a>
+  <a href="#risks">Risks</a>
+  <a href="#sources">Sources</a>
+</nav>
+
+<section id="outcomes">
+  <h2>End-of-month outcomes</h2>
+  <p class="sub">The full vertical slice is the target for months 2–4. Month one proves the parts it depends on.</p>
+  <div class="grid g2">
+    <div class="card outcome"><span class="num">1</span><div><b>Pipeline that doesn't collide.</b> Both devs use the repo daily with zero scene conflicts; a Blender asset can be re-exported without breaking the programmer's work.</div></div>
+    <div class="card outcome"><span class="num">2</span><div><b>Playable greybox duel.</b> Heroine (proxy rig) vs one large proxy monster: posture, parry, greatsword/katana switching, lock-on to body parts, corruption v0, a shrine.</div></div>
+    <div class="card outcome"><span class="num">3</span><div><b>Living design docs v1.</b> Pillars, character bible, world bible, naming sheet, combat spec with attack tables, Zone 1 bubble diagram.</div></div>
+    <div class="card outcome"><span class="num">4</span><div><b>Art bar set.</b> Heroine and cat silhouettes locked, heroine blockout on its final rig, one painterly look-test scene.</div></div>
+    <div class="card outcome"><span class="num">5</span><div><b>Scope locked.</b> Vertical-slice scope decided, final names for heroine, cat and guardian order, and a month-2 plan.</div></div>
+  </div>
+</section>
+
+<section id="schedule">
+  <h2>Week-by-week schedule</h2>
+  <p class="sub">Each week has one must-pass exit check; everything else can be cut if hours slip. Tick tasks as you go — progress is saved in this browser only.</p>
+
+  <div class="timeline">
+    <div><b>Week 1 · Nov 24–30</b>Foundations &amp; contracts</div>
+    <div><b>Week 2 · Dec 1–7</b>Combat feel prototype</div>
+    <div><b>Week 3 · Dec 8–14</b>Forms, corruption, first monster</div>
+    <div><b>Week 4 · Dec 15–21</b>Integration, look test, scope lock</div>
+  </div>
+
+  <div class="weektabs" role="tablist">
+    <button role="tab" data-w="1" aria-selected="true">Week 1</button>
+    <button role="tab" data-w="2" aria-selected="false">Week 2</button>
+    <button role="tab" data-w="3" aria-selected="false">Week 3</button>
+    <button role="tab" data-w="4" aria-selected="false">Week 4</button>
+  </div>
+
+  <div class="week on" data-week="1">
+    <div class="weekhead"><h3>Foundations &amp; contracts</h3><div class="progress"><span class="pct"></span><div class="bar"><i></i></div></div></div>
+    <div class="grid g3">
+      <div class="card lane"><h4><span class="tag both">BOTH</span> Shared</h4>
+        <div class="task"><input type="checkbox" id="w1s1"><label for="w1s1">2 h vision &amp; pillars session → <code>VISION.md</code></label></div>
+        <div class="task"><input type="checkbox" id="w1s2"><label for="w1s2">1 h naming brainstorm → shortlist in <code>NAMING.md</code></label></div>
+        <div class="task"><input type="checkbox" id="w1s3"><label for="w1s3">Sign off <code>ART_SPEC.md</code> and <code>OWNERS.md</code></label></div>
+      </div>
+      <div class="card lane"><h4><span class="tag p">P</span> Kiran · programmer</h4>
+        <div class="task"><input type="checkbox" id="w1p1"><label for="w1p1">Repo + Git LFS, commit <code>.gitattributes</code> before any binary</label></div>
+        <div class="task"><input type="checkbox" id="w1p2"><label for="w1p2">Godot 4.7.2 project, typed GDScript (<code>untyped_declaration</code> = error)</label></div>
+        <div class="task"><input type="checkbox" id="w1p3"><label for="w1p3">Install gdUnit4</label></div>
+        <div class="task"><input type="checkbox" id="w1p4"><label for="w1p4">Godot basics: 3D tutorial, CharacterBody3D, AnimationTree docs</label></div>
+        <div class="task"><input type="checkbox" id="w1p5"><label for="w1p5">Capsule player: movement, third-person camera, input map</label></div>
+      </div>
+      <div class="card lane"><h4><span class="tag a">A</span> Humaira · designer</h4>
+        <div class="task"><input type="checkbox" id="w1a1"><label for="w1a1">Anchorpoint + LFS locking set up</label></div>
+        <div class="task"><input type="checkbox" id="w1a2"><label for="w1a2">Blender template: 1 m units, 1.7 m reference figure</label></div>
+        <div class="task"><input type="checkbox" id="w1a3"><label for="w1a3">Pipeline smoke test: cube-man (3 bones, 2 clips, <code>-col</code> mesh) → change → re-export</label></div>
+        <div class="task"><input type="checkbox" id="w1a4"><label for="w1a4">Mood boards</label></div>
+        <div class="task"><input type="checkbox" id="w1a5"><label for="w1a5">30+ heroine silhouette thumbnails</label></div>
+      </div>
+    </div>
+    <div class="exit"><b>Exit check:</b> a re-export round-trip leaves the programmer's scenes with no git diff; pillars written.</div>
+  </div>
+
+  <div class="week" data-week="2">
+    <div class="weekhead"><h3>Combat feel prototype — “find the fun”</h3><div class="progress"><span class="pct"></span><div class="bar"><i></i></div></div></div>
+    <div class="grid g3">
+      <div class="card lane"><h4><span class="tag p">P</span> Kiran · programmer</h4>
+        <div class="task"><input type="checkbox" id="w2p1"><label for="w2p1">Posture system (no stamina), block, parry window (start at 10–12 frames)</label></div>
+        <div class="task"><input type="checkbox" id="w2p2"><label for="w2p2">Hit-stop + deathblow on posture break</label></div>
+        <div class="task"><input type="checkbox" id="w2p3"><label for="w2p3">Capsule duelist with 3 telegraphed attacks, tuned from Resource data tables</label></div>
+        <div class="task"><input type="checkbox" id="w2p4"><label for="w2p4">Lock-on</label></div>
+        <div class="task"><input type="checkbox" id="w2p5"><label for="w2p5">gdUnit4 tests for posture &amp; parry math</label></div>
+      </div>
+      <div class="card lane"><h4><span class="tag a">A</span> Humaira · designer</h4>
+        <div class="task"><input type="checkbox" id="w2a1"><label for="w2a1">Shape-language sheet</label></div>
+        <div class="task"><input type="checkbox" id="w2a2"><label for="w2a2">Cat silhouettes + expression sheet (sealed, playful, menacing)</label></div>
+        <div class="task"><input type="checkbox" id="w2a3"><label for="w2a3">Heroine silhouette locked → turnaround</label></div>
+        <div class="task"><input type="checkbox" id="w2a4"><label for="w2a4">Greatsword &amp; katana proxy props with <code>weapon_R</code> socket</label></div>
+      </div>
+      <div class="card lane"><h4><span class="tag p">P</span> Kiran · docs</h4>
+        <div class="task"><input type="checkbox" id="w2d1"><label for="w2d1">Draft <code>COMBAT_SPEC.md</code></label></div>
+        <div class="task"><input type="checkbox" id="w2d2"><label for="w2d2">Character bible: heroine and cat</label></div>
+      </div>
+    </div>
+    <div class="exit"><b>Exit check:</b> the deflect → posture-break loop is fun with capsules. If not, keep iterating here before adding anything.</div>
+  </div>
+
+  <div class="week" data-week="3">
+    <div class="weekhead"><h3>Forms, corruption &amp; the first monster</h3><div class="progress"><span class="pct"></span><div class="bar"><i></i></div></div></div>
+    <div class="grid g3">
+      <div class="card lane"><h4><span class="tag p">P</span> Kiran · programmer</h4>
+        <div class="task"><input type="checkbox" id="w3p1"><label for="w3p1">Greatsword/katana toggle mid-combo; katana dodge with i-frames</label></div>
+        <div class="task"><input type="checkbox" id="w3p2"><label for="w3p2">Corruption meter v0 (input hijack stubbed)</label></div>
+        <div class="task"><input type="checkbox" id="w3p3"><label for="w3p3">Shrine: rest, refill heals, reset</label></div>
+        <div class="task"><input type="checkbox" id="w3p4"><label for="w3p4">AnimationTree state machine on the heroine rig (Mixamo placeholders)</label></div>
+        <div class="task"><input type="checkbox" id="w3p5"><label for="w3p5">Large-monster controller: per-part hurtboxes &amp; posture, part-cycling lock-on, pull-back camera</label></div>
+      </div>
+      <div class="card lane"><h4><span class="tag a">A</span> Humaira · designer</h4>
+        <div class="task"><input type="checkbox" id="w3a1"><label for="w3a1">Heroine blockout on final humanoid rig (replaces cube-man)</label></div>
+        <div class="task"><input type="checkbox" id="w3a2"><label for="w3a2">Anim set v1: idle, run, 3-hit combo, block, parry, dodge, hit-react</label></div>
+        <div class="task"><input type="checkbox" id="w3a3"><label for="w3a3">Monster #1 brief + 20 thumbnails</label></div>
+        <div class="task"><input type="checkbox" id="w3a4"><label for="w3a4">Monster #1 capsule proxy on shared rig, 4 placeholder attack poses (no sculpt)</label></div>
+      </div>
+      <div class="card lane"><h4><span class="tag p">P</span> Kiran · docs</h4>
+        <div class="task"><input type="checkbox" id="w3d1"><label for="w3d1"><code>WORLD_BIBLE.md</code> three-way faction sheet</label></div>
+        <div class="task"><input type="checkbox" id="w3d2"><label for="w3d2"><code>ZONE01.md</code> bubble diagram</label></div>
+      </div>
+    </div>
+    <div class="exit"><b>Exit check:</b> the heroine rig runs in-engine through the AnimationTree, and the proxy monster can be locked onto part by part.</div>
+  </div>
+
+  <div class="week" data-week="4">
+    <div class="weekhead"><h3>Integration, look test &amp; scope lock</h3><div class="progress"><span class="pct"></span><div class="bar"><i></i></div></div></div>
+    <div class="grid g3">
+      <div class="card lane"><h4><span class="tag p">P</span> Kiran · programmer</h4>
+        <div class="task"><input type="checkbox" id="w4p1"><label for="w4p1">Zone 01 greybox slice: shrine, path, one shortcut, boss arena</label></div>
+        <div class="task"><input type="checkbox" id="w4p2"><label for="w4p2">Navmesh baked per agent size</label></div>
+        <div class="task"><input type="checkbox" id="w4p3"><label for="w4p3">Monster #1 AI: 4 attacks from the attack table, limb breaks</label></div>
+        <div class="task"><input type="checkbox" id="w4p4"><label for="w4p4">Kuwahara / CompositorEffect painterly post-process with exported params</label></div>
+        <div class="task"><input type="checkbox" id="w4p5"><label for="w4p5">Windows export build</label></div>
+      </div>
+      <div class="card lane"><h4><span class="tag a">A</span> Humaira · designer</h4>
+        <div class="task"><input type="checkbox" id="w4a1"><label for="w4a1">Small kit: shrine, rock, tree</label></div>
+        <div class="task"><input type="checkbox" id="w4a2"><label for="w4a2">Painterly look test in <code>Zone01_Lighting.tscn</code>: hand-painted albedo, LightmapGI, fog, LUT</label></div>
+        <div class="task"><input type="checkbox" id="w4a3"><label for="w4a3">Tune post-process parameters</label></div>
+      </div>
+      <div class="card lane"><h4><span class="tag both">BOTH</span> Shared</h4>
+        <div class="task"><input type="checkbox" id="w4s1"><label for="w4s1">External playtest, 3–5 people; open questions; log deaths by attack ID</label></div>
+        <div class="task"><input type="checkbox" id="w4s2"><label for="w4s2">Retro</label></div>
+        <div class="task"><input type="checkbox" id="w4s3"><label for="w4s3">Lock vertical-slice scope: zone, bosses, opening, forms</label></div>
+        <div class="task"><input type="checkbox" id="w4s4"><label for="w4s4">Final names: heroine, cat, guardian order</label></div>
+        <div class="task"><input type="checkbox" id="w4s5"><label for="w4s5">Write the month-2 plan</label></div>
+      </div>
+    </div>
+    <div class="exit"><b>Exit check:</b> outsiders can play the greybox duel start to finish, and the slice scope is written down.</div>
+  </div>
+</section>
+
+<section id="rules">
+  <h2>Parallel-work rules</h2>
+  <p class="sub">The “no interference” contract. Full detail lives in <code>docs/WORKFLOW.md</code>.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3 style="margin-top:0">Tools &amp; versions</h3>
+      <ul>
+        <li><b>Godot 4.7.2</b> on both machines, exactly. Upgrade together, only after 4.8.1.</li>
+        <li>Blender exports <b>.glb</b>; don't import .blend directly. Sources live in <code>source_art/</code> (ignored by Godot).</li>
+        <li>Git + LFS from the first commit. <code>.blend</code>/<code>.glb</code> are lockable.</li>
+        <li><b>Commit</b> <code>.import</code> and <code>.uid</code> files; move a <code>.uid</code> with its script.</li>
+        <li>GitHub for code; Anchorpoint for the modeler. LFS fallback: Gitea or Azure DevOps if the 10 GiB/month bandwidth runs out.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Branching &amp; rhythm</h3>
+      <ul>
+        <li><code>main</code> always opens and runs.</li>
+        <li><span class="tag p">P</span> 1–3 day feature branches → PR → Claude review.</li>
+        <li><span class="tag a">A</span> commits straight to <code>main</code> when only touching A-owned paths.</li>
+        <li><b>Pull before opening the editor.</b> Tag milestones <code>m1-w1</code>…<code>m1-final</code>.</li>
+        <li>Mon 20-min sync · Wed async check-in · Fri 30-min play-together + retro.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="rule"><b>Never edit an imported .glb scene.</b> No Editable Children, no inherited scenes. The programmer wraps the glb in their own scene; the modeler re-exports in place. It keeps working as long as node and bone names stay stable.</div>
+  <div class="rule"><b>Scene conflict?</b> Don't hand-merge. Take one side and redo the other change in the editor.</div>
+</section>
+
+<section id="ownership">
+  <h2>Who owns what</h2>
+  <p class="sub">One owner per file. The other dev requests changes.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Path</th><th>Owner</th><th>Contents</th></tr></thead>
+    <tbody>
+      <tr><td><code>source_art/</code></td><td><span class="tag a">A</span></td><td>.blend working files, locked while editing</td></tr>
+      <tr><td><code>assets/characters|monsters|env|props/</code></td><td><span class="tag a">A</span></td><td>Exported glb, rigs, animation libraries, textures, <code>MAT_*.tres</code></td></tr>
+      <tr><td><code>scenes/actors/*.tscn</code></td><td><span class="tag p">P</span></td><td>Wrapper: CharacterBody3D → instanced glb + script, hitboxes, AnimationTree, sockets</td></tr>
+      <tr><td><code>scenes/levels/zone01/Zone01.tscn</code></td><td><span class="tag p">P</span></td><td>Root; only instances the three sub-scenes</td></tr>
+      <tr><td><code>Zone01_Gameplay.tscn</code></td><td><span class="tag p">P</span></td><td>Greybox collision, spawns, triggers, navmesh, stealth volumes</td></tr>
+      <tr><td><code>Zone01_Art.tscn</code></td><td><span class="tag a">A</span></td><td>Set dressing</td></tr>
+      <tr><td><code>Zone01_Lighting.tscn</code></td><td><span class="tag a">A</span></td><td>Environment, lights, fog, LightmapGI</td></tr>
+      <tr><td><code>scripts/</code> <code>shaders/</code> <code>tests/</code> <code>project.godot</code></td><td><span class="tag p">P</span></td><td>Code, input map, autoloads, layers</td></tr>
+    </tbody>
+  </table></div>
+  <div class="zones">
+    <div class="root"><b>Zone01.tscn</b> (P) — instances only</div>
+    <div style="background:var(--p-soft);color:var(--p)">Zone01_Gameplay<br><small>P</small></div>
+    <div style="background:var(--a-soft);color:var(--a)">Zone01_Art<br><small>A</small></div>
+    <div style="background:var(--a-soft);color:var(--a)">Zone01_Lighting<br><small>A</small></div>
+  </div>
+</section>
+
+<section id="spec">
+  <h2>Asset contract</h2>
+  <p class="sub">Agreed by end of week 1 in <code>docs/ART_SPEC.md</code>. Greybox is built to these numbers so final art drops straight in.</p>
+  <div class="grid g3">
+    <div class="card"><h3 style="margin-top:0">Scale &amp; pivots</h3><ul>
+      <li>1 Blender unit = 1 m; apply transforms</li>
+      <li>Characters face +Z</li>
+      <li>Characters pivot at feet; props bottom-center</li>
+      <li>Modular pieces on a 1 m grid</li></ul></div>
+    <div class="card"><h3 style="margin-top:0">Metrics</h3><ul>
+      <li>Heroine 1.70 m · doors 2.4 m</li>
+      <li>Climbs 1.0 m / 2.2 m</li>
+      <li>Monsters S 2–3 m · L 5–8 m · XL 12 m+</li></ul></div>
+    <div class="card"><h3 style="margin-top:0">Naming &amp; sockets</h3><ul>
+      <li><code>SM_</code> <code>SK_</code> <code>A_char_action</code> <code>MAT_</code> <code>T_</code></li>
+      <li>Sockets: <code>weapon_R</code> <code>weapon_back</code> <code>cat_perch</code></li>
+      <li>Suffixes: <code>-col</code> <code>-colonly</code> <code>-navmesh</code> <code>-loop</code></li></ul></div>
+    <div class="card"><h3 style="margin-top:0">Rigs</h3><ul>
+      <li>Heroine → SkeletonProfileHumanoid</li>
+      <li>Mixamo = placeholders only</li>
+      <li>Monsters: 2–3 shared rig families (oni, beast, serpent)</li></ul></div>
+    <div class="card"><h3 style="margin-top:0">Budgets</h3><ul>
+      <li>Heroine 30–60k tris</li>
+      <li>Large monster 60–120k</li>
+      <li>Modular piece 1–10k</li>
+      <li>512–1024 px/m texel density</li></ul></div>
+    <div class="card"><h3 style="margin-top:0">Animation handoff</h3><ul>
+      <li>AnimationLibrary .glb files</li>
+      <li>Root motion on the root bone</li>
+      <li>Animate only clips locked in an attack table</li></ul></div>
+  </div>
+</section>
+
+<section id="docs">
+  <h2>Design-doc stack</h2>
+  <p class="sub">Living, one page each, one owner each, all in <code>docs/</code>. Every new idea must pass the pillars.</p>
+  <div class="card" style="margin-bottom:14px">
+    <b>Draft pillars</b>
+    <div class="grid g2" style="margin-top:8px">
+      <div>⚔ <b>Every duel is a conversation</b></div>
+      <div>🕊 <b>Mercy is harder than murder</b></div>
+      <div>🐈 <b>The sword talks back</b></div>
+      <div>🌀 <b>A world that folds in on itself</b></div>
+    </div>
+  </div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Doc</th><th>Owner</th><th>Method</th></tr></thead>
+    <tbody>
+      <tr><td><code>VISION.md</code></td><td><span class="tag both">BOTH</span></td><td>Experience statement + 3–4 experience pillars that filter every feature</td></tr>
+      <tr><td><code>CHARACTER_BIBLE.md</code></td><td><span class="tag p">P</span></td><td>Ghost → wound → lie → flaw; want vs need; voice; silhouette key; mechanical expression; 5 arc beats</td></tr>
+      <tr><td><code>WORLD_BIBLE.md</code></td><td><span class="tag p">P</span></td><td>Iceberg (10% shown, 90% kept); timeline; cosmology; three-way faction sheet; never-reveal list</td></tr>
+      <tr><td><code>NAMING.md</code></td><td><span class="tag both">BOTH</span></td><td>Real Japanese morphemes with glosses; no real kami/shrines/clans; no Bleach terms; native-speaker check</td></tr>
+      <tr><td><code>COMBAT_SPEC.md</code></td><td><span class="tag p">P</span></td><td>Posture, parry, forms, corruption; frame-data attack tables; per-part posture on monsters</td></tr>
+      <tr><td><code>BOSS_TEMPLATE.md</code></td><td><span class="tag p">P</span></td><td>Fantasy &amp; lesson, arena, phases, moveset, unblockables, stealth opener, death-feedback goal</td></tr>
+      <tr><td><code>ZONE01.md</code></td><td><span class="tag p">P</span> <span class="tag a">A</span></td><td>Bubble diagram: critical path, loops, ~70% shortcut, vista; stealth pocket see → plan → execute</td></tr>
+      <tr><td><code>ART_BIBLE.md</code></td><td><span class="tag a">A</span></td><td>Mood boards, shape language, color script, silhouettes, turnarounds, painterly recipe</td></tr>
+      <tr><td><code>ITEM_TEXT.md</code></td><td><span class="tag p">P</span></td><td>What it is / mechanical hint / lore fragment / unanswered question, under 60 words</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="risks">
+  <h2>Risks</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Risk</th><th>Mitigation</th></tr></thead>
+    <tbody>
+      <tr><td>Part-time hours slip</td><td>One must-pass exit check per week; everything else can be cut.</td></tr>
+      <tr><td>Animation bottleneck (A models, rigs <i>and</i> animates)</td><td>Mixamo placeholders via the humanoid profile; shared monster rig families; animate only locked attack-table clips.</td></tr>
+      <tr><td>Both new to Godot</td><td>Learning time in week 1; Claude Code works from <code>CLAUDE.md</code> and the docs; typed GDScript with tests.</td></tr>
+      <tr><td>LFS bandwidth runs out</td><td>Watch GitHub usage; fall back to Gitea or Azure DevOps.</td></tr>
+      <tr><td>Bleach resemblance</td><td><code>NAMING.md</code> rules; original claw-form design starts in month 2.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="sources">
+  <h2>Key sources</h2>
+  <ul>
+    <li><a href="https://docs.godotengine.org/en/stable/tutorials/best_practices/version_control_systems.html">Godot: version control systems</a> · <a href="https://godotengine.org/article/uid-changes-coming-to-godot-4-4/">UID changes in 4.4</a></li>
+    <li><a href="https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_3d_scenes/node_type_customization.html">Godot import suffixes</a> · <a href="https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/retargeting_3d_skeletons.html">Retargeting 3D skeletons</a></li>
+    <li><a href="https://studio.blender.org/blog/our-workflow-with-blender-and-godot/">Blender Studio: Project Dogwalk workflow</a></li>
+    <li><a href="https://gamedeveloper.com/design/video-one-page-designs">Librande: One-Page Designs</a> · <a href="https://book.leveldesignbook.com/process/blockout">Level Design Book: blockout</a></li>
+    <li><a href="https://gdcvault.com/play/1025768/Raising-Atreus-for-Battle-in">GDC: Raising Atreus for Battle</a> · <a href="https://www.videogameschronicle.com/news/sucker-punch-discusses-ghost-of-tsushimas-approach-to-cultural-authenticity">Ghost of Tsushima on cultural authenticity</a></li>
+    <li><a href="https://gamedeveloper.com/design/enemy-attacks-and-telegraphing">Enemy attacks and telegraphing</a> · <a href="https://mhworld.kiranico.com/guide/understanding-monster">Monster Hunter hitzones &amp; part breaks</a></li>
+    <li><a href="https://www.youtube.com/watch?v=1h4M7zDPg1Y">Donovan (Volition): The Vertical Slice Challenge, GDC 2015</a></li>
+  </ul>
+</section>
+
+<footer>Source: <code>docs/DEV_PLAN_MONTH1.md</code> · Soul Sword Game pre-production · Nov 2026</footer>
+</div>
+
+<button class="themebtn" id="themebtn" type="button">◐ Theme</button>
+
+<script>
+(function(){
+  function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  function save(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+
+  // theme toggle
+  var root=document.documentElement, t=load('m1plan-theme');
+  if(t) root.setAttribute('data-theme',t);
+  document.getElementById('themebtn').addEventListener('click',function(){
+    var dark = root.getAttribute('data-theme')==='dark' ||
+      (!root.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
+    var next = dark?'light':'dark'; root.setAttribute('data-theme',next); save('m1plan-theme',next);
+  });
+
+  // week tabs
+  var tabs=document.querySelectorAll('.weektabs button');
+  function show(w){
+    tabs.forEach(function(b){b.setAttribute('aria-selected', b.dataset.w===w?'true':'false')});
+    document.querySelectorAll('.week').forEach(function(s){s.classList.toggle('on', s.dataset.week===w)});
+    save('m1plan-week',w);
+  }
+  tabs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.w)})});
+  var today=new Date(), w='1';
+  if(today>=new Date('2026-12-15')) w='4'; else if(today>=new Date('2026-12-08')) w='3'; else if(today>=new Date('2026-12-01')) w='2';
+  show(load('m1plan-week')||w);
+
+  // checkboxes + progress
+  function update(){
+    document.querySelectorAll('.week').forEach(function(s){
+      var boxes=s.querySelectorAll('input[type=checkbox]'), done=0;
+      boxes.forEach(function(b){if(b.checked)done++});
+      var pct=Math.round(done/boxes.length*100);
+      s.querySelector('.pct').textContent=done+' / '+boxes.length+' done';
+      s.querySelector('.bar i').style.width=pct+'%';
+    });
+  }
+  document.querySelectorAll('.task input').forEach(function(b){
+    b.checked = load('m1plan-'+b.id)==='1';
+    b.addEventListener('change',function(){save('m1plan-'+b.id, b.checked?'1':'0'); update();});
+  });
+  update();
+})();
+</script>
+</body>
+</html>

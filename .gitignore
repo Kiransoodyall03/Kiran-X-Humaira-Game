@@ -1,0 +1,19 @@
+# Godot 4.1+ (official)
+.godot/
+*.translation
+
+# Blender backups / temp saves
+*.blend1
+*.blend2
+*.blend@
+
+# Builds
+export/
+builds/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# NOTE: do NOT ignore *.import or *.uid — they must be committed.
