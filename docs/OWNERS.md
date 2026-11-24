@@ -12,7 +12,9 @@ P = Kiran (programmer) · A = Humaira (designer/modeler/animator)
 | `scenes/levels/<zone>/<Zone>_Gameplay.tscn` | P | Greybox collision, spawns, triggers, NavigationRegion3D, stealth volumes, shrines. |
 | `scenes/levels/<zone>/<Zone>_Art.tscn` | A | Set dressing placed over the greybox. No gameplay nodes. |
 | `scenes/levels/<zone>/<Zone>_Lighting.tscn` | A | WorldEnvironment, lights, fog volumes, LightmapGI, ReflectionProbes. |
+| `scenes/levels/sandbox/**` | P | Dev test level for trying mechanics. Exempt from the Gameplay/Art/Lighting split; its sun and sky are placeholder greybox lighting. |
 | `scenes/ui/**` | P | |
+| `data/**` | P | Tuning Resources (`.tres`): movement, camera, later combat frame data. A asks for value changes, or edits them only in an agreed live-tuning session. |
 | `scripts/**`, `shaders/**`, `tests/**` | P | Shader *parameters* A tunes via exported uniforms in A-owned materials/scenes. |
 | `project.godot` | P | Input map, autoloads, physics layers, settings. A requests changes. |
 | `.gitignore`, `.gitattributes`, `CLAUDE.md` | P | |

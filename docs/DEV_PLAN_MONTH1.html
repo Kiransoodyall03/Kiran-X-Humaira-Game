@@ -153,11 +153,11 @@ footer{margin-top:50px;color:var(--muted);font-size:13px;border-top:1px solid va
         <div class="task"><input type="checkbox" id="w1s3"><label for="w1s3">Sign off <code>ART_SPEC.md</code> and <code>OWNERS.md</code></label></div>
       </div>
       <div class="card lane"><h4><span class="tag p">P</span> Kiran · programmer</h4>
-        <div class="task"><input type="checkbox" id="w1p1"><label for="w1p1">Repo + Git LFS, commit <code>.gitattributes</code> before any binary</label></div>
-        <div class="task"><input type="checkbox" id="w1p2"><label for="w1p2">Godot 4.7.2 project, typed GDScript (<code>untyped_declaration</code> = error)</label></div>
+        <div class="task"><input type="checkbox" id="w1p1" checked><label for="w1p1">Repo + Git LFS, commit <code>.gitattributes</code> before any binary</label></div>
+        <div class="task"><input type="checkbox" id="w1p2" checked><label for="w1p2">Godot 4.7.2 project, typed GDScript (<code>untyped_declaration</code> = error)</label></div>
         <div class="task"><input type="checkbox" id="w1p3"><label for="w1p3">Install gdUnit4</label></div>
         <div class="task"><input type="checkbox" id="w1p4"><label for="w1p4">Godot basics: 3D tutorial, CharacterBody3D, AnimationTree docs</label></div>
-        <div class="task"><input type="checkbox" id="w1p5"><label for="w1p5">Capsule player: movement, third-person camera, input map</label></div>
+        <div class="task"><input type="checkbox" id="w1p5" checked><label for="w1p5">Capsule player: movement, third-person camera, input map</label></div>
       </div>
       <div class="card lane"><h4><span class="tag a">A</span> Humaira · designer</h4>
         <div class="task"><input type="checkbox" id="w1a1"><label for="w1a1">Anchorpoint + LFS locking set up</label></div>
@@ -428,7 +428,9 @@ footer{margin-top:50px;color:var(--muted);font-size:13px;border-top:1px solid va
     });
   }
   document.querySelectorAll('.task input').forEach(function(b){
-    b.checked = load('m1plan-'+b.id)==='1';
+    // Ticks written into the file are the default; a viewer's own clicks override them.
+    var stored = load('m1plan-'+b.id);
+    if (stored !== null) b.checked = stored==='1';
     b.addEventListener('change',function(){save('m1plan-'+b.id, b.checked?'1':'0'); update();});
   });
   update();

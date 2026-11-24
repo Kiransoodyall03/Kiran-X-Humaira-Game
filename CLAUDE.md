@@ -3,7 +3,10 @@
 3D action RPG (Sekiro-style parry/posture duels, stealth zones) in **Godot 4.7.2** (pinned — never change `config/features` in project.godot). Team: P = Kiran, programmer (owns code); A = Humaira, designer (owns art: modeling, rigging, animation). Design docs live in `docs/` — read `docs/VISION.md` pillars and the relevant spec before designing a feature.
 
 ## Ownership (see docs/OWNERS.md)
-- You work on P's behalf. Only edit P-owned paths: `scripts/`, `shaders/`, `tests/`, `scenes/actors/`, `scenes/ui/`, `scenes/levels/*/ZoneXX.tscn` and `*_Gameplay.tscn`, `project.godot`, P-owned docs.
+- You work on P's behalf. Only edit P-owned paths: `scripts/`, `shaders/`, `tests/`, `data/`, `scenes/actors/`, `scenes/ui/`, `scenes/levels/sandbox/`, `scenes/levels/*/ZoneXX.tscn` and `*_Gameplay.tscn`, `project.godot`, P-owned docs.
+
+## Testing
+- Headless smoke test for the player: `godot --headless --path . --script res://tests/smoke/player_smoke_test.gd` (exit 0 = pass). Run it after any change to `scripts/actors/` or the heroine/sandbox scenes.
 - **Never edit** A-owned paths: `source_art/`, `assets/**` (glb, textures, `MAT_*.tres`), `*_Art.tscn`, `*_Lighting.tscn`. If a change is needed there, write it up as a request instead.
 - Never edit an imported `.glb` scene, use "Editable Children", or create inherited scenes from a glb. Wrap the glb as a child of a P-owned scene; attach things with `BoneAttachment3D` using the socket names in `docs/ART_SPEC.md`.
 

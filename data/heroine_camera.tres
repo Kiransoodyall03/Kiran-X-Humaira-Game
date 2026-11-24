@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="ThirdPersonCameraConfig" format=3 uid="uid://d1xp3owkhvmy0"]
+
+[ext_resource type="Script" path="res://scripts/actors/third_person_camera_config.gd" id="1_hxuw2"]
+
+[resource]
+script = ExtResource("1_hxuw2")

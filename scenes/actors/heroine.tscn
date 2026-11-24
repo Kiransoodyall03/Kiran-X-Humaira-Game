@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://clc0cj5mojkyp"]
+
+[ext_resource type="Script" path="res://scripts/actors/player_controller.gd" id="1_7a500"]
+[ext_resource type="Resource" path="res://data/heroine_movement.tres" id="2_cp1pb"]
+[ext_resource type="Script" path="res://scripts/actors/third_person_camera.gd" id="3_xcycx"]
+[ext_resource type="Resource" path="res://data/heroine_camera.tres" id="4_r5ok4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yfpcs"]
+radius = 0.35
+height = 1.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5jbv"]
+albedo_color = Color(0.85, 0.82, 0.78, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_glhrr"]
+material = SubResource("StandardMaterial3D_r5jbv")
+radius = 0.35
+height = 1.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8p6a1"]
+albedo_color = Color(0.64, 0.2, 0.16, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u2xmx"]
+material = SubResource("StandardMaterial3D_8p6a1")
+size = Vector3(0.2, 0.12, 0.25)
+
+[node name="Heroine" type="CharacterBody3D" unique_id=241606311 node_paths=PackedStringArray("camera_rig")]
+collision_layer = 2
+floor_snap_length = 0.3
+script = ExtResource("1_7a500")
+config = ExtResource("2_cp1pb")
+camera_rig = NodePath("CameraRig")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2046195031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+shape = SubResource("CapsuleShape3D_yfpcs")
+
+[node name="Visual" type="Node3D" parent="." unique_id=739149386]
+
+[node name="BodyMesh" type="MeshInstance3D" parent="Visual" unique_id=779508076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+mesh = SubResource("CapsuleMesh_glhrr")
+
+[node name="FacingMarker" type="MeshInstance3D" parent="Visual" unique_id=796303178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0.35)
+mesh = SubResource("BoxMesh_u2xmx")
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=909448271 node_paths=PackedStringArray("target")]
+script = ExtResource("3_xcycx")
+config = ExtResource("4_r5ok4")
+target = NodePath("..")
+
+[node name="PitchPivot" type="Node3D" parent="CameraRig" unique_id=1903488007]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig/PitchPivot" unique_id=1130231573]
+current = true
