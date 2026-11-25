@@ -4,6 +4,8 @@
 [ext_resource type="Resource" path="res://data/heroine_movement.tres" id="2_cp1pb"]
 [ext_resource type="Script" path="res://scripts/actors/third_person_camera.gd" id="3_xcycx"]
 [ext_resource type="Resource" path="res://data/heroine_camera.tres" id="4_r5ok4"]
+[ext_resource type="Script" path="res://scripts/combat/combatant.gd" id="5_xcycx"]
+[ext_resource type="Resource" path="res://data/combat/heroine_combatant.tres" id="6_r5ok4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yfpcs"]
 radius = 0.35
@@ -24,12 +26,14 @@ albedo_color = Color(0.64, 0.2, 0.16, 1)
 material = SubResource("StandardMaterial3D_8p6a1")
 size = Vector3(0.2, 0.12, 0.25)
 
-[node name="Heroine" type="CharacterBody3D" unique_id=241606311 node_paths=PackedStringArray("camera_rig")]
+[node name="Heroine" type="CharacterBody3D" unique_id=241606311 node_paths=PackedStringArray("camera_rig", "combatant")]
 collision_layer = 2
+collision_mask = 5
 floor_snap_length = 0.3
 script = ExtResource("1_7a500")
 config = ExtResource("2_cp1pb")
 camera_rig = NodePath("CameraRig")
+combatant = NodePath("Combatant")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2046195031]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
@@ -54,3 +58,7 @@ target = NodePath("..")
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig/PitchPivot" unique_id=1130231573]
 current = true
+
+[node name="Combatant" type="Node" parent="." unique_id=1781313127]
+script = ExtResource("5_xcycx")
+config = ExtResource("6_r5ok4")

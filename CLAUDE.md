@@ -9,6 +9,7 @@
 
 ## Testing
 - Headless smoke test for the player: `godot --headless --path . --script res://tests/smoke/player_smoke_test.gd` (exit 0 = pass). Run it after any change to `scripts/actors/` or the heroine/sandbox scenes.
+- Headless combat smoke test (heroine vs training dummy): `godot --headless --path . --script res://tests/smoke/combat_smoke_test.gd`. Run it after any change to `scripts/combat/`, the dummy, or `data/combat|attacks/`. Both smoke tests also fail on any engine/script error.
 - gdUnit4 unit tests (`tests/unit/`, suites extend `GdUnitTestSuite`): `addons\gdUnit4\runtest.cmd --godot_binary <path to Godot console exe> --headless --ignoreHeadlessMode -a res://tests/unit` (exit 0 = pass; reports go to the ignored `reports/` folder). In the editor, use the GdUnit panel.
 - `addons/gdUnit4/` is third-party (gdUnit4 v6.2.3). Don't edit it; upgrade by replacing the whole folder.
 

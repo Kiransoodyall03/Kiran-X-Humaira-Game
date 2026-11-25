@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://c08xr7mtrfs7u"]
+
+[ext_resource type="Script" path="res://scripts/actors/training_dummy.gd" id="1_y2nmy"]
+[ext_resource type="Script" path="res://scripts/combat/attack_data.gd" id="2_68ibw"]
+[ext_resource type="Resource" path="res://data/attacks/dummy_overhead.tres" id="3_1ovhe"]
+[ext_resource type="Resource" path="res://data/attacks/dummy_thrust.tres" id="4_dl8ft"]
+[ext_resource type="Resource" path="res://data/attacks/dummy_sweep.tres" id="5_8y34c"]
+[ext_resource type="Script" path="res://scripts/combat/combatant.gd" id="6_3tluj"]
+[ext_resource type="Resource" path="res://data/combat/dummy_combatant.tres" id="7_gpyov"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_legti"]
+radius = 0.45
+height = 2.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxgsd"]
+albedo_color = Color(0.55, 0.5, 0.48, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wluu4"]
+material = SubResource("StandardMaterial3D_bxgsd")
+radius = 0.45
+height = 2.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_yyspr"]
+size = Vector3(0.25, 0.15, 0.3)
+
+[node name="TrainingDummy" type="CharacterBody3D" unique_id=733201136]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_y2nmy")
+attacks = Array[ExtResource("2_68ibw")]([ExtResource("3_1ovhe"), ExtResource("3_1ovhe"), ExtResource("4_dl8ft"), ExtResource("3_1ovhe"), ExtResource("5_8y34c")])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=809246156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+shape = SubResource("CapsuleShape3D_legti")
+
+[node name="Visual" type="Node3D" parent="." unique_id=2037560607]
+
+[node name="BodyMesh" type="MeshInstance3D" parent="Visual" unique_id=1718295028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+mesh = SubResource("CapsuleMesh_wluu4")
+
+[node name="FacingMarker" type="MeshInstance3D" parent="Visual" unique_id=1384772205]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0.45)
+mesh = SubResource("BoxMesh_yyspr")
+
+[node name="Combatant" type="Node" parent="." unique_id=898813933]
+script = ExtResource("6_3tluj")
+config = ExtResource("7_gpyov")

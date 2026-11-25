@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://dnkx224orbatf"]
+
+[ext_resource type="Script" path="res://scripts/combat/attack_data.gd" id="1_icuod"]
+
+[resource]
+script = ExtResource("1_icuod")
+id = &"dummy_overhead"
+display_name = "Overhead"
+reach = 2.6
+tell_color = Color(1, 0.78, 0.3, 1)

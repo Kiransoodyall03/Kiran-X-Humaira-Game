@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://b5nn0aok2sg0n"]
+
+[ext_resource type="Script" path="res://scripts/combat/attack_data.gd" id="1_np3rb"]
+
+[resource]
+script = ExtResource("1_np3rb")
+id = &"dummy_thrust"
+display_name = "Thrust"
+startup_frames = 36
+recovery_frames = 40
+damage = 25.0
+posture_damage = 30.0
+reach = 3.2
+blockable = false
+perilous = 1
+tell_color = Color(0.95, 0.15, 0.12, 1)

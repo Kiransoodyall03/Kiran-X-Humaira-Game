@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CombatantConfig" format=3 uid="uid://p23ld82073bl"]
+
+[ext_resource type="Resource" path="res://data/combat/dummy_guard.tres" id="1_ird4s"]
+[ext_resource type="Resource" path="res://data/combat/dummy_posture.tres" id="2_nd2gc"]
+[ext_resource type="Script" path="res://scripts/combat/combatant_config.gd" id="3_5pmiy"]
+
+[resource]
+script = ExtResource("3_5pmiy")
+max_health = 200.0
+posture = ExtResource("2_nd2gc")
+guard = ExtResource("1_ird4s")

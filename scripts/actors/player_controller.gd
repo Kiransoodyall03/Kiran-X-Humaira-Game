@@ -12,6 +12,8 @@ signal landed
 @export var config: PlayerMovementConfig
 ## Camera used to make movement camera-relative. If unset, movement is world-relative.
 @export var camera_rig: ThirdPersonCamera
+## Health, posture and guard. Guard input is ignored if unset.
+@export var combatant: Combatant
 
 @onready var _visual: Node3D = $Visual
 
@@ -24,11 +26,19 @@ var _was_on_floor: bool = true
 
 func _ready() -> void:
 	assert(config != null, "PlayerController needs a PlayerMovementConfig")
+	add_to_group(&"player")
+	# Read input before other physics nodes this frame, so a guard pressed on the same
+	# frame an enemy's hit lands still counts.
+	process_physics_priority = -10
 
 
 func _physics_process(delta: float) -> void:
-	var move_direction: Vector3 = get_move_direction()
+	_handle_guard_input()
+	var can_act: bool = combatant == null or combatant.can_act()
+	var move_direction: Vector3 = get_move_direction() if can_act else Vector3.ZERO
 	_update_jump_timers(delta)
+	if not can_act:
+		_jump_buffer_timer = 0.0
 	_apply_gravity(delta)
 	_try_jump()
 	_apply_horizontal_movement(move_direction, delta)
@@ -50,6 +60,33 @@ func get_move_direction() -> Vector3:
 ## World-space yaw (radians) the visual is facing. 0 = facing world +Z.
 func get_facing_yaw() -> float:
 	return _visual.global_rotation.y
+
+
+func is_guarding() -> bool:
+	return combatant != null and combatant.is_guarding()
+
+
+func is_staggered() -> bool:
+	return combatant != null and combatant.is_staggered()
+
+
+func is_dead() -> bool:
+	return combatant != null and combatant.is_dead
+
+
+## Press = guard up with a fresh parry window. The guard's held state then follows the
+## button, so a press and release inside one physics tick can't leave it stuck on, and a
+## button held through a stagger raises the guard again (without a parry) once she recovers.
+func _handle_guard_input() -> void:
+	if combatant == null:
+		return
+	if Input.is_action_just_pressed("block"):
+		combatant.guard_press()
+	var held: bool = Input.is_action_pressed("block")
+	if not held and combatant.guard.is_held:
+		combatant.guard_release()
+	elif held and not combatant.guard.is_held:
+		combatant.guard_hold()
 
 
 func _update_jump_timers(delta: float) -> void:
@@ -92,7 +129,11 @@ func _cut_jump() -> void:
 
 
 func _apply_horizontal_movement(move_direction: Vector3, delta: float) -> void:
-	var top_speed: float = config.sprint_speed if Input.is_action_pressed("sprint") else config.walk_speed
+	var top_speed: float = config.walk_speed
+	if is_guarding():
+		top_speed *= config.guard_speed_multiplier
+	elif Input.is_action_pressed("sprint"):
+		top_speed = config.sprint_speed
 	var target_velocity: Vector3 = move_direction * top_speed
 	var horizontal: Vector3 = Vector3(velocity.x, 0.0, velocity.z)
 	var rate: float = config.acceleration if move_direction != Vector3.ZERO else config.deceleration

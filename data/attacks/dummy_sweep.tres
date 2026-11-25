@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://feukypyutphx"]
+
+[ext_resource type="Script" path="res://scripts/combat/attack_data.gd" id="1_ot836"]
+
+[resource]
+script = ExtResource("1_ot836")
+id = &"dummy_sweep"
+display_name = "Sweep"
+startup_frames = 40
+active_frames = 8
+recovery_frames = 40
+damage = 25.0
+posture_damage = 20.0
+reach = 2.8
+blockable = false
+deflectable = false
+perilous = 2
+misses_airborne = true
+tell_color = Color(0.75, 0.2, 0.9, 1)

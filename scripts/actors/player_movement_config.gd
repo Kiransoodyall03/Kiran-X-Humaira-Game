@@ -13,6 +13,8 @@ extends Resource
 @export_range(0.0, 200.0, 0.5, "suffix:m/s²") var deceleration: float = 40.0
 ## How fast the body turns to face its movement direction, in degrees per second.
 @export_range(0.0, 2000.0, 10.0, "suffix:°/s") var turn_speed_degrees: float = 720.0
+## Speed multiplier while guarding. Sprint is unavailable while guarding.
+@export_range(0.0, 1.0, 0.05) var guard_speed_multiplier: float = 0.4
 ## Tallest ledge walked onto without jumping (docs/ART_SPEC.md "step-up"), in meters.
 @export_range(0.0, 1.0, 0.01, "suffix:m") var max_step_height: float = 0.35
 ## How far ahead the step-up check looks for a flat landing. About the capsule radius.

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://cwu5mbwhyccnp"]
 
 [ext_resource type="PackedScene" path="res://scenes/actors/heroine.tscn" id="1_baoho"]
+[ext_resource type="PackedScene" path="res://scenes/actors/training_dummy.tscn" id="2_83wjq"]
+[ext_resource type="PackedScene" path="res://scenes/ui/combat_hud.tscn" id="3_s1yyb"]
+[ext_resource type="Script" path="res://scripts/levels/sandbox_rules.gd" id="4_t47af"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8obsl"]
 
@@ -190,3 +193,14 @@ mesh = SubResource("BoxMesh_6mqu6")
 shape = SubResource("BoxShape3D_0x2vm")
 
 [node name="Heroine" parent="." unique_id=241606311 instance=ExtResource("1_baoho")]
+
+[node name="TrainingDummy" parent="." unique_id=733201136 instance=ExtResource("2_83wjq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -14)
+
+[node name="CombatHud" parent="." unique_id=1469360738 node_paths=PackedStringArray("player", "opponent") instance=ExtResource("3_s1yyb")]
+player = NodePath("../Heroine/Combatant")
+opponent = NodePath("../TrainingDummy/Combatant")
+
+[node name="SandboxRules" type="Node" parent="." unique_id=230866303 node_paths=PackedStringArray("player")]
+script = ExtResource("4_t47af")
+player = NodePath("../Heroine/Combatant")

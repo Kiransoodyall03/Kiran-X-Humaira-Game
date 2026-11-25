@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CombatantConfig" format=3 uid="uid://b61tna3j13a8t"]
+
+[ext_resource type="Resource" path="res://data/combat/heroine_guard.tres" id="1_0q3gm"]
+[ext_resource type="Resource" path="res://data/combat/heroine_posture.tres" id="2_hv7rx"]
+[ext_resource type="Script" path="res://scripts/combat/combatant_config.gd" id="3_my3p8"]
+
+[resource]
+script = ExtResource("3_my3p8")
+posture = ExtResource("2_hv7rx")
+guard = ExtResource("1_0q3gm")

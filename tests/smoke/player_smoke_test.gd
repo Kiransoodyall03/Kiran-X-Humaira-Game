@@ -18,7 +18,11 @@ var _jump_count: int = 0
 var _land_count: int = 0
 
 
+var _errors: SmokeErrorCounter = SmokeErrorCounter.new()
+
+
 func _initialize() -> void:
+	OS.add_logger(_errors)
 	_run.call_deferred()
 
 
@@ -46,7 +50,8 @@ func _run() -> void:
 	await _test_coyote()
 	await _test_pitch_clamp()
 
-	print("SMOKE TEST ", "PASSED" if _failures == 0 else "FAILED (%d)" % _failures)
+	_expect(_errors.errors == 0, "no engine/script errors (%d; first: %s)" % [_errors.errors, _errors.first_error])
+	print("SMOKE TEST ","PASSED" if _failures == 0 else "FAILED (%d)" % _failures)
 	quit(0 if _failures == 0 else 1)
 
 
