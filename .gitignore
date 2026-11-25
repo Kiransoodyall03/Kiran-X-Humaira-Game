@@ -17,3 +17,6 @@ Thumbs.db
 desktop.ini
 
 # NOTE: do NOT ignore *.import or *.uid — they must be committed.
+
+# gdUnit4 test reports
+reports/
