@@ -4,11 +4,11 @@
 
 ## Ownership (see docs/OWNERS.md)
 - You work on P's behalf. Only edit P-owned paths: `scripts/`, `shaders/`, `tests/`, `data/`, `scenes/actors/`, `scenes/ui/`, `scenes/levels/sandbox/`, `scenes/levels/*/ZoneXX.tscn` and `*_Gameplay.tscn`, `project.godot`, P-owned docs.
+- **Never edit** A-owned paths: `source_art/`, `assets/**` (glb, textures, `MAT_*.tres`), `*_Art.tscn`, `*_Lighting.tscn`. If a change is needed there, write it up as a request instead.
+- Never edit an imported `.glb` scene, use "Editable Children", or create inherited scenes from a glb. Wrap the glb as a child of a P-owned scene; attach things with `BoneAttachment3D` using the socket names in `docs/ART_SPEC.md`.
 
 ## Testing
 - Headless smoke test for the player: `godot --headless --path . --script res://tests/smoke/player_smoke_test.gd` (exit 0 = pass). Run it after any change to `scripts/actors/` or the heroine/sandbox scenes.
-- **Never edit** A-owned paths: `source_art/`, `assets/**` (glb, textures, `MAT_*.tres`), `*_Art.tscn`, `*_Lighting.tscn`. If a change is needed there, write it up as a request instead.
-- Never edit an imported `.glb` scene, use "Editable Children", or create inherited scenes from a glb. Wrap the glb as a child of a P-owned scene; attach things with `BoneAttachment3D` using the socket names in `docs/ART_SPEC.md`.
 
 ## Godot file rules
 - Commit `.import` and `.uid` files. When moving/renaming a `.gd` or `.gdshader` outside the editor, move its `.uid` sidecar too (`git mv a.gd b.gd && git mv a.gd.uid b.gd.uid`). Never hand-edit or regenerate UIDs.
