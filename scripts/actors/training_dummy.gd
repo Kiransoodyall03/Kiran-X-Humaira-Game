@@ -4,10 +4,16 @@ extends CharacterBody3D
 ## It turns to face the player and cycles through its attack list. Each attack has a
 ## visible tell: the body flashes the attack's tell colour during startup.
 ## Hits use a simple reach + facing check (real hitboxes come with the duelist).
+## The heroine's attacks land on its Hurtbox. It has no guard AI, so every hit lands.
+## A posture break (or 0 health, since its config requires a deathblow) staggers it and
+## opens a deathblow; a deathblow with lives left gets it back up for the next life, the
+## last one makes it go dark until revived (SandboxRules does that).
+## Resting at a shrine respawns it (group "respawn_on_rest"): back at its start position,
+## revived with all lives, attack list from the top.
 ##
-## Expected children: Visual/BodyMesh (MeshInstance3D), CollisionShape3D, Combatant
+## Expected children: Visual/BodyMesh (MeshInstance3D), CollisionShape3D, Combatant, Hurtbox
 
-enum Phase { IDLE, STARTUP, ACTIVE, RECOVERY, STAGGERED }
+enum Phase { IDLE, STARTUP, ACTIVE, RECOVERY, STAGGERED, DEAD }
 
 signal phase_changed(phase: Phase, attack: AttackData)
 
@@ -37,15 +43,22 @@ var _hit_landed: bool = false
 var _material: StandardMaterial3D
 var _base_color: Color = Color(0.55, 0.5, 0.48)
 var _gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity") as float
+## Where it stands at level start; respawn() puts it back here.
+var home: Vector3
 
 
 func _ready() -> void:
+	add_to_group(CorruptionMeter.HOSTILE_GROUP) # counts as "in combat" for her corruption
+	add_to_group(PlayerRest.RESPAWN_GROUP) # a shrine rest respawns it
+	home = global_position
 	var source: Material = _body_mesh.get_active_material(0)
 	_material = (source.duplicate() as StandardMaterial3D) if source is StandardMaterial3D else StandardMaterial3D.new()
 	_base_color = _material.albedo_color
 	_body_mesh.material_override = _material
 	_combatant.posture_broken.connect(_on_posture_broken)
 	_combatant.stagger_ended.connect(_on_stagger_ended)
+	_combatant.died.connect(_on_died)
+	_combatant.revived.connect(_on_revived)
 
 
 func _physics_process(delta: float) -> void:
@@ -56,6 +69,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if target == null:
 		target = get_tree().get_first_node_in_group(&"player") as Node3D
+	if HitStopService.is_frozen():
+		return # hit-stop: phases are counted in combat frames
 	if phase == Phase.IDLE or phase == Phase.STARTUP:
 		_turn_toward_target(delta)
 	_step_phase()
@@ -70,6 +85,17 @@ func get_forward() -> Vector3:
 
 func get_combatant() -> Combatant:
 	return _combatant
+
+
+## Shrine rest: back at home, revived (full health, all lives, empty posture), idle, and
+## its attack list starts over.
+func respawn() -> void:
+	global_position = home
+	velocity = Vector3.ZERO
+	reset_physics_interpolation()
+	_attack_index = 0
+	_hit_landed = false
+	_combatant.revive() # -> _on_revived: base colour, IDLE
 
 
 func _step_phase() -> void:
@@ -97,6 +123,8 @@ func _step_phase() -> void:
 				_enter(Phase.IDLE)
 		Phase.STAGGERED:
 			pass # left by stagger_ended
+		Phase.DEAD:
+			pass # left by revived
 
 
 func _enter(new_phase: Phase) -> void:
@@ -152,10 +180,24 @@ func _turn_toward_target(delta: float) -> void:
 
 
 func _on_posture_broken() -> void:
+	if phase == Phase.DEAD:
+		return
 	_material.albedo_color = Color(0.35, 0.55, 0.95)
 	_enter(Phase.STAGGERED)
 
 
 func _on_stagger_ended() -> void:
+	if phase == Phase.DEAD:
+		return
+	_material.albedo_color = _base_color
+	_enter(Phase.IDLE)
+
+
+func _on_died() -> void:
+	_material.albedo_color = Color(0.18, 0.17, 0.17)
+	_enter(Phase.DEAD)
+
+
+func _on_revived() -> void:
 	_material.albedo_color = _base_color
 	_enter(Phase.IDLE)

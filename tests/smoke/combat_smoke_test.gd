@@ -112,7 +112,7 @@ func _run() -> void:
 	_expect(_dummy.phase == TrainingDummy.Phase.STAGGERED, "the dummy is staggered after its posture broke")
 
 	# The dummy recovers after its stagger and attacks again.
-	await _physics_frames(_dummy_c.config.posture.break_stagger_frames + 2)
+	await _combat_frames(_dummy_c.config.posture.break_stagger_frames + 2)
 	_expect(_dummy.phase == TrainingDummy.Phase.IDLE and is_zero_approx(_dummy_c.posture.value), "dummy recovers from the stagger with empty posture")
 	_expect(await _next_attack() != null, "dummy attacks again after recovering")
 
@@ -163,7 +163,7 @@ func _test_guard_break_and_hold_through() -> void:
 	_expect(_player_c.is_staggered(), "a guard break staggers the heroine")
 	_expect(not _player.is_guarding(), "no guard while staggered")
 	_dummy.attacking_enabled = false
-	await _physics_frames(_player_c.config.posture.break_stagger_frames + 3)
+	await _combat_frames(_player_c.config.posture.break_stagger_frames + 3)
 	_expect(not _player_c.is_staggered(), "the stagger ends")
 	_expect(_player.is_guarding(), "block held through the stagger comes back up afterwards")
 	Input.action_release(&"block")
@@ -232,6 +232,15 @@ func _tap(action: StringName, hold_frames: int) -> void:
 
 func _physics_frames(count: int) -> void:
 	for i: int in count:
+		await physics_frame
+
+
+## Waits `count` combat frames (physics ticks frozen by hit-stop don't count).
+func _combat_frames(count: int) -> void:
+	var target: int = Combatant.current_frame() + count
+	for i: int in count + 600:
+		if Combatant.current_frame() >= target:
+			return
 		await physics_frame
 
 

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://dovjlh4udrm06"]
+
+[ext_resource type="Script" path="res://scripts/combat/attack_data.gd" id="1_tse0x"]
+
+[resource]
+script = ExtResource("1_tse0x")
+id = &"duelist_delayed_overhead"
+display_name = "Delayed overhead"
+startup_frames = 48
+active_frames = 5
+recovery_frames = 42
+damage = 28.0
+posture_damage = 35.0
+reach = 2.7
+hit_width = 1.4
+lunge_distance = 0.6
+tell_color = Color(1, 0.45, 0.08, 1)

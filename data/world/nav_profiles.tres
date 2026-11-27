@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="NavProfilesConfig" format=3 uid="uid://f8bf6h2e4ago"]
+
+[ext_resource type="Script" path="res://scripts/world/nav_profiles_config.gd" id="1_teher"]
+
+[resource]
+script = ExtResource("1_teher")

@@ -1,0 +1,711 @@
+[gd_resource type="AnimationLibrary" format=3 uid="uid://3s287db8q342"]
+
+[sub_resource type="Animation" id="Animation_e1n1c"]
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0, 0.3, 1, 0, 0.71886486, -0.26164538, 0.8, 1, 0, 0.074082434, -0.8467655, 1, 1, 0, 0.074082434, -0.8467655)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.3, 1, -0.17364816, 0, 0, 0.9848078, 0.8, 1, -0.67559016, 0, 0, 0.7372774, 1, 1, -0.67559016, 0, 0, 0.7372774)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.3, 1, 1.0540925, 0.9, 1.0540925, 0.8, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_qjdy3"]
+length = 0.8333333333333334
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0, 0.25, 1, 0.09487606, 0.8370866, -0.113068886, 0.375, 1, 0.06642043, 0.6625094, 0.37668896, 0.625, 1, 0.06642043, 0.6625094, 0.37668896, 0.8333333, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.25, 1, -0.081899606, -0.34071863, -0.029809017, 0.9361169, 0.375, 1, 0.25783417, 0.084185995, -0.022557568, 0.9622502, 0.625, 1, 0.25783417, 0.084185995, -0.022557568, 0.9622502, 0.8333333, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.25, 1, 1, 1, 1, 0.375, 1, 1.0540925, 0.9, 1.0540925, 0.625, 1, 1.0540925, 0.9, 1.0540925, 0.8333333, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_wb5hc"]
+length = 0.3
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0, 0.045, 1, 0, 0.6316965, -0.29456493, 0.21, 1, 0, 0.6548074, -0.30534172, 0.3, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.045, 1, -0.21643962, 0, 0, 0.976296, 0.21, 1, -0.21643962, 0, 0, 0.976296, 0.3, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.045, 1, 1.1043153, 0.82, 1.1043153, 0.21, 1, 1.0846523, 0.85, 1.0846523, 0.3, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_2e1a1"]
+length = 0.3
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0, 0.045, 1, 0, 0.6316965, 0.29456493, 0.21, 1, 0, 0.6548074, 0.30534172, 0.3, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.045, 1, 0.21643962, 0, 0, 0.976296, 0.21, 1, 0.21643962, 0, 0, 0.976296, 0.3, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.045, 1, 1.1043153, 0.82, 1.1043153, 0.21, 1, 1.0846523, 0.85, 1.0846523, 0.3, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_2ljr0"]
+length = 0.3
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0, 0.045, 1, 0.29456493, 0.6316965, 0, 0.21, 1, 0.30534172, 0.6548074, 0, 0.3, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.045, 1, 0, 0, -0.21643962, 0.976296, 0.21, 1, 0, 0, -0.21643962, 0.976296, 0.3, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.045, 1, 1.1043153, 0.82, 1.1043153, 0.21, 1, 1.0846523, 0.85, 1.0846523, 0.3, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_lwp7t"]
+length = 0.3
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0, 0.045, 1, -0.29456493, 0.6316965, 0, 0.21, 1, -0.30534172, 0.6548074, 0, 0.3, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.045, 1, 0, 0, 0.21643962, 0.976296, 0.21, 1, 0, 0, 0.21643962, 0.976296, 0.3, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.045, 1, 1.1043153, 0.82, 1.1043153, 0.21, 1, 1.0846523, 0.85, 1.0846523, 0.3, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_mgtnd"]
+length = 0.5
+loop_mode = 1
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.91576385, -0.064036444, 0.25, 1, 0, 0.92987806, -0.09773412, 0.5, 1, 0, 0.91576385, -0.064036444)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.034899496, 0, 0, 0.99939084, 0.25, 1, -0.052335955, 0, 0, 0.9986295, 0.5, 1, -0.034899496, 0, 0, 0.99939084)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.9622505, 1.08, 0.9622505, 0.25, 1, 0.9534626, 1.1, 0.9534626, 0.5, 1, 0.9622505, 1.08, 0.9622505)
+
+[sub_resource type="Animation" id="Animation_wecqe"]
+length = 0.8166666666666667
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0, 0.3, 1, 0.08042741, 0.79523224, -0.11486224, 0.38333333, 1, 0.15668447, 0.840734, 0.22376862, 0.5566667, 1, 0.10541988, 0.8646825, 0.1505552, 0.81666666, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.3, 1, -0.08312192, -0.29956153, -0.02620824, 0.9500878, 0.38333333, 1, 0.14919421, 0.2970036, -0.04704075, 0.9419751, 0.5566667, 1, 0.09969057, 0.2990585, -0.031432316, 0.9484924, 0.81666666, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.3, 1, 1.0259783, 0.95, 1.0259783, 0.38333333, 1, 0.9805807, 1.04, 0.9805807, 0.5566667, 1, 0.9805807, 1.04, 0.9805807, 0.81666666, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_cgxr4"]
+length = 0.8833333333333333
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0, 0.33333334, 1, -0.13842504, 0.78518873, -0.12795879, 0.41666666, 1, -0.26713085, 0.8056805, 0.24693324, 0.60333335, 1, -0.18110459, 0.84889966, 0.16741137, 0.8833333, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.33333334, 1, -0.107686356, 0.39797097, 0.047102977, 0.90983737, 0.41666666, 1, 0.19283168, -0.391772, 0.0843463, 0.8956653, 0.60333335, 1, 0.12909202, -0.3967508, 0.056466002, 0.90704775, 0.8833333, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.33333334, 1, 1.0259783, 0.95, 1.0259783, 0.41666666, 1, 0.9805807, 1.04, 0.9805807, 0.60333335, 1, 0.9805807, 1.04, 0.9805807, 0.8833333, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_n20su"]
+length = 1.2
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0, 0.43333334, 1, 0.20342214, 0.77221614, -0.119824804, 0.53333336, 1, 0.3877267, 0.76089597, 0.2283885, 0.8, 1, 0.2655004, 0.82855725, 0.15639171, 1.2, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.43333334, 1, -0.12832797, -0.49076605, -0.07334547, 0.85866237, 0.53333336, 1, 0.22909427, 0.4786293, -0.13093814, 0.8374276, 0.8, 1, 0.15374476, 0.48837405, -0.08787237, 0.85447747, 1.2, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.43333334, 1, 1.0259783, 0.95, 1.0259783, 0.53333336, 1, 0.9805807, 1.04, 0.9805807, 0.8, 1, 0.9805807, 1.04, 0.9805807, 1.2, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_14s0a"]
+loop_mode = 1
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.03567183, 0.80307645, -0.07649848, 0.5, 1, 0.0331748, 0.7468611, -0.07114359, 1, 1, 0.03567183, 0.80307645, -0.07649848)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.051095385, -0.21614301, -0.011327575, 0.97495806, 0.5, 1, -0.051095385, -0.21614301, -0.011327575, 0.97495806, 1, 1, -0.051095385, -0.21614301, -0.011327575, 0.97495806)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1.0259783, 0.95, 1.0259783, 0.5, 1, 1.06389, 0.8835, 1.06389, 1, 1, 1.0259783, 0.95, 1.0259783)
+
+[sub_resource type="Animation" id="Animation_kvd0i"]
+length = 0.2
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.03567183, 0.80307645, -0.07649848, 0.05, 1, 0.11249906, 0.65885687, -0.241255, 0.2, 1, 0.03567183, 0.80307645, -0.07649848)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.051095385, -0.21614301, -0.011327575, 0.97495806, 0.05, 1, -0.18628606, -0.212463, -0.041298624, 0.9583587, 0.2, 1, -0.051095385, -0.21614301, -0.011327575, 0.97495806)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1.0259783, 0.95, 1.0259783, 0.05, 1, 1.0936966, 0.836, 1.0936966, 0.2, 1, 1.0259783, 0.95, 1.0259783)
+
+[sub_resource type="Animation" id="Animation_732od"]
+length = 0.9
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0, 0.35, 1, 0, 0.7115236, 0.12546082, 0.5, 1, 0, 0.952, 0, 0.9, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.35, 1, 0.08715575, 0, 0, 0.9961947, 0.5, 1, 0, 0, 0, 1, 0.9, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.35, 1, 1.0846523, 0.85, 1.0846523, 0.5, 1, 0.9449112, 1.12, 0.9449112, 0.9, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_v6b34"]
+length = 0.3
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0, 0.06, 1, 0, 0.72505784, -0.29294237, 0.3, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.06, 1, -0.19080898, 0, 0, 0.98162717, 0.3, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.06, 1, 1.042572, 0.92, 1.042572, 0.3, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_dh3r8"]
+length = 2.0
+loop_mode = 1
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0, 1, 1, 0, 0.8755, 0, 2, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 2, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 1, 1, 0.9853293, 1.03, 0.9853293, 2, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_o8wgg"]
+length = 0.2
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.68, 0, 0.08, 1, 0, 0.9775, 0, 0.2, 1, 0, 0.91800004, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.08, 1, 0, 0, 0, 1, 0.2, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1.118034, 0.8, 1.118034, 0.08, 1, 0.93250483, 1.15, 0.93250483, 0.2, 1, 0.9622505, 1.08, 0.9622505)
+
+[sub_resource type="Animation" id="Animation_hjukf"]
+length = 0.4166666666666667
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0, 0.13333334, 1, 0.03024867, 0.80307645, -0.07880047, 0.18333334, 1, 0.05936189, 0.8683419, 0.154643, 0.27666667, 1, 0.039705228, 0.8770294, 0.10343564, 0.41666666, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.13333334, 1, -0.05145958, -0.18198578, -0.0095374705, 0.9819074, 0.18333334, 1, 0.09253246, 0.18142678, -0.017149879, 0.9788912, 0.27666667, 1, 0.061739087, 0.18187594, -0.011442664, 0.98131466, 0.41666666, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.13333334, 1, 1.0259783, 0.95, 1.0259783, 0.18333334, 1, 0.9805807, 1.04, 0.9805807, 0.27666667, 1, 0.9805807, 1.04, 0.9805807, 0.41666666, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_xq6m0"]
+length = 0.4166666666666667
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0, 0.13333334, 1, -0.054028086, 0.79944414, -0.10013161, 0.18333334, 1, -0.10567012, 0.85553265, 0.19584109, 0.27666667, 1, -0.070871726, 0.8713098, 0.13134837, 0.41666666, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.13333334, 1, -0.06847655, 0.24427284, 0.017295443, 0.96713114, 0.18333334, 1, 0.123027936, -0.24290489, 0.031073742, 0.961715, 0.27666667, 1, 0.082141764, -0.24400392, 0.02074693, 0.9660665, 0.41666666, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.13333334, 1, 1.0259783, 0.95, 1.0259783, 0.18333334, 1, 0.9805807, 1.04, 0.9805807, 0.27666667, 1, 0.9805807, 1.04, 0.9805807, 0.41666666, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_odsqr"]
+length = 0.6333333333333333
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0, 0.2, 1, 0.083444014, 0.79473794, -0.11612463, 0.26666668, 1, 0.16248591, 0.839001, 0.2261231, 0.41333333, 1, 0.109363966, 0.863905, 0.15219606, 0.6333333, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.2, 1, -0.08461512, -0.30531254, -0.02724842, 0.9480939, 0.26666668, 1, 0.15185685, 0.30260012, -0.048902128, 0.9396708, 0.41333333, 1, 0.10147916, 0.30477914, -0.032679107, 0.94643736, 0.6333333, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.2, 1, 1.0259783, 0.95, 1.0259783, 0.26666668, 1, 0.9805807, 1.04, 0.9805807, 0.41333333, 1, 0.9805807, 1.04, 0.9805807, 0.6333333, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_j02gs"]
+length = 0.16666666666666666
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.61200005, 0, 0.083333336, 1, 0, 0.765, 0, 0.16666667, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.083333336, 1, 0, 0, 0, 1, 0.16666667, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1.1785113, 0.72, 1.1785113, 0.083333336, 1, 1.0540925, 0.9, 1.0540925, 0.16666667, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_aaf1e"]
+length = 0.23333333333333334
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.03567183, 0.80307645, -0.07649848, 0.046666667, 1, 0.014090671, 0.8070081, 0.024405757, 0.23333333, 1, 0.03567183, 0.80307645, -0.07649848)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.051095385, -0.21614301, -0.011327575, 0.97495806, 0.046666667, 1, 0.016857728, 0.25877962, -0.004517015, 0.9657787, 0.23333333, 1, -0.051095385, -0.21614301, -0.011327575, 0.97495806)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1.0259783, 0.95, 1.0259783, 0.046666667, 1, 1.0259783, 0.95, 1.0259783, 0.23333333, 1, 1.0259783, 0.95, 1.0259783)
+
+[sub_resource type="Animation" id="Animation_86a62"]
+length = 1.5
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0, 0.375, 1, 0, 0.5050368, 0.07097829, 1.125, 1, 0, 0.5050368, 0.07097829, 1.5, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.375, 1, 0.069756486, 0, 0, 0.9975641, 1.125, 1, 0.069756486, 0, 0, 0.9975641, 1.5, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.375, 1, 1.2909944, 0.6, 1.2909944, 1.125, 1, 1.2909944, 0.6, 1.2909944, 1.5, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_d3xwd"]
+length = 0.5
+loop_mode = 1
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.059293002, 0.83504754, 0.14724141, 0.125, 1, 0, 0.88708663, 0.14760095, 0.25, 1, -0.059293002, 0.83504754, 0.14724141, 0.375, 1, 0, 0.88708663, 0.14760095, 0.5, 1, 0.059293002, 0.83504754, 0.14724141)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.08710265, 0.0030416911, -0.034766693, 0.9955878, 0.125, 1, 0.08715575, 0, 0, 0.9961947, 0.25, 1, 0.08710265, -0.0030416911, 0.034766693, 0.9955878, 0.375, 1, 0.08715575, 0, 0, 0.9961947, 0.5, 1, 0.08710265, 0.0030416911, -0.034766693, 0.9955878)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.125, 1, 1, 1, 1, 0.25, 1, 1, 1, 1, 0.375, 1, 1, 1, 1, 0.5, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_15gsg"]
+length = 0.4
+loop_mode = 1
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.07408238, 0.80532193, 0.26166493, 0.1, 1, 0, 0.87839806, 0.26266447, 0.2, 1, -0.07408238, 0.80532193, 0.26166493, 0.3, 1, 0, 0.87839806, 0.26266447, 0.4, 1, 0.07408238, 0.80532193, 0.26166493)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.15628558, 0.006823575, -0.043082356, 0.9867483, 0.1, 1, 0.15643446, 0, 0, 0.9876883, 0.2, 1, 0.15628558, -0.006823575, 0.043082356, 0.9867483, 0.3, 1, 0.15643446, 0, 0, 0.9876883, 0.4, 1, 0.15628558, 0.006823575, -0.043082356, 0.9867483)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.1, 1, 1, 1, 1, 0.2, 1, 1, 1, 1, 0.3, 1, 1, 1, 1, 0.4, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_ijxi3"]
+loop_mode = 1
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.11701299, 0.7226466, -0.15360327, 0.5, 1, -0.11701299, 0.7226466, -0.15360327, 1, 1, 0.11701299, 0.7226466, -0.15360327)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.10420625, -0.00820121, -0.0780293, 0.99145615, 0.5, 1, -0.10420625, 0.00820121, 0.0780293, 0.99145615, 1, 1, -0.10420625, -0.00820121, -0.0780293, 0.99145615)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1.0660036, 0.88, 1.0660036, 0.5, 1, 1.0660036, 0.88, 1.0660036, 1, 1, 1.0660036, 0.88, 1.0660036)
+
+[sub_resource type="Animation" id="Animation_rehhd"]
+length = 0.6666666666666666
+loop_mode = 1
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.044485565, 0.8467674, 0.059211742, 0.16666667, 1, 0, 0.87792945, 0.059293002, 0.33333334, 1, -0.044485565, 0.8467674, 0.059211742, 0.5, 1, 0, 0.87792945, 0.059293002, 0.6666667, 1, 0.044485565, 0.8467674, 0.059211742)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.03488754, 0.00091356237, -0.026161006, 0.99904835, 0.16666667, 1, 0.034899496, 0, 0, 0.99939084, 0.33333334, 1, 0.03488754, -0.00091356237, 0.026161006, 0.99904835, 0.5, 1, 0.034899496, 0, 0, 0.99939084, 0.6666667, 1, 0.03488754, 0.00091356237, -0.026161006, 0.99904835)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.16666667, 1, 1, 1, 1, 0.33333334, 1, 1, 1, 1, 0.5, 1, 1, 1, 1, 0.6666667, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_7qy8v"]
+length = 0.016666666666666666
+step = 0.016666668
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/BodyMesh")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.85, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/BodyMesh")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/BodyMesh")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+
+[resource]
+_data = {
+&"A_heroine_death": SubResource("Animation_e1n1c"),
+&"A_heroine_deathblow": SubResource("Animation_qjdy3"),
+&"A_heroine_dodge_back": SubResource("Animation_wb5hc"),
+&"A_heroine_dodge_forward": SubResource("Animation_2e1a1"),
+&"A_heroine_dodge_left": SubResource("Animation_2ljr0"),
+&"A_heroine_dodge_right": SubResource("Animation_lwp7t"),
+&"A_heroine_fall-loop": SubResource("Animation_mgtnd"),
+&"A_heroine_greatsword_light_1": SubResource("Animation_wecqe"),
+&"A_heroine_greatsword_light_2": SubResource("Animation_cgxr4"),
+&"A_heroine_greatsword_light_3": SubResource("Animation_n20su"),
+&"A_heroine_guard-loop": SubResource("Animation_14s0a"),
+&"A_heroine_guard_hit": SubResource("Animation_kvd0i"),
+&"A_heroine_heal": SubResource("Animation_732od"),
+&"A_heroine_hit_react": SubResource("Animation_v6b34"),
+&"A_heroine_idle-loop": SubResource("Animation_dh3r8"),
+&"A_heroine_jump": SubResource("Animation_o8wgg"),
+&"A_heroine_katana_light_1": SubResource("Animation_hjukf"),
+&"A_heroine_katana_light_2": SubResource("Animation_xq6m0"),
+&"A_heroine_katana_light_3": SubResource("Animation_odsqr"),
+&"A_heroine_land": SubResource("Animation_j02gs"),
+&"A_heroine_parry": SubResource("Animation_aaf1e"),
+&"A_heroine_rest": SubResource("Animation_86a62"),
+&"A_heroine_run-loop": SubResource("Animation_d3xwd"),
+&"A_heroine_sprint-loop": SubResource("Animation_15gsg"),
+&"A_heroine_stagger-loop": SubResource("Animation_ijxi3"),
+&"A_heroine_walk-loop": SubResource("Animation_rehhd"),
+&"RESET": SubResource("Animation_7qy8v")
+}

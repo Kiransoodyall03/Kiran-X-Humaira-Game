@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://d4l6acvewiofb"]
+
+[ext_resource type="Script" path="res://scripts/world/shrine.gd" id="1_nin2s"]
+[ext_resource type="Resource" path="res://data/world/shrine.tres" id="2_m4ngi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2w1ye"]
+albedo_color = Color(0.55, 0.53, 0.5, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_7mx01"]
+material = SubResource("StandardMaterial3D_2w1ye")
+size = Vector3(3.4, 0.3, 2.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jncjk"]
+size = Vector3(3.4, 0.3, 2.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eb11v"]
+albedo_color = Color(0.62, 0.22, 0.16, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_ag4o0"]
+material = SubResource("StandardMaterial3D_eb11v")
+size = Vector3(0.3, 2.8, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_klu32"]
+size = Vector3(0.3, 2.8, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ha3la"]
+material = SubResource("StandardMaterial3D_eb11v")
+size = Vector3(0.3, 2.8, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_axgat"]
+size = Vector3(0.3, 2.8, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l0lyi"]
+material = SubResource("StandardMaterial3D_eb11v")
+size = Vector3(4, 0.25, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6lqtx"]
+size = Vector3(4, 0.25, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bmwme"]
+material = SubResource("StandardMaterial3D_eb11v")
+size = Vector3(3.2, 0.18, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nyrqx"]
+size = Vector3(3.2, 0.18, 0.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8k1av"]
+material = SubResource("StandardMaterial3D_2w1ye")
+size = Vector3(0.9, 0.9, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_prpqi"]
+size = Vector3(0.9, 0.9, 0.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iov7a"]
+albedo_color = Color(1, 0.82, 0.45, 1)
+roughness = 0.9
+emission_enabled = true
+emission = Color(1, 0.82, 0.45, 1)
+emission_energy_multiplier = 2.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_knk5t"]
+material = SubResource("StandardMaterial3D_iov7a")
+radius = 0.18
+height = 0.36
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r6c2q"]
+height = 2.6
+radius = 2.6
+
+[node name="Shrine" type="Node3D" unique_id=1878036530]
+script = ExtResource("1_nin2s")
+config = ExtResource("2_m4ngi")
+
+[node name="Greybox" type="Node3D" parent="." unique_id=643092685]
+
+[node name="Platform" type="StaticBody3D" parent="Greybox" unique_id=913843617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -1)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/Platform" unique_id=1299909627]
+mesh = SubResource("BoxMesh_7mx01")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/Platform" unique_id=1073072089]
+shape = SubResource("BoxShape3D_jncjk")
+
+[node name="PostLeft" type="StaticBody3D" parent="Greybox" unique_id=442823476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.4, 0)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/PostLeft" unique_id=1940177590]
+mesh = SubResource("BoxMesh_ag4o0")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/PostLeft" unique_id=653290300]
+shape = SubResource("BoxShape3D_klu32")
+
+[node name="PostRight" type="StaticBody3D" parent="Greybox" unique_id=1122947720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.4, 0)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/PostRight" unique_id=228054908]
+mesh = SubResource("BoxMesh_ha3la")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/PostRight" unique_id=1602725950]
+shape = SubResource("BoxShape3D_axgat")
+
+[node name="TopBeam" type="StaticBody3D" parent="Greybox" unique_id=1017974663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/TopBeam" unique_id=37607953]
+mesh = SubResource("BoxMesh_l0lyi")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/TopBeam" unique_id=441404659]
+shape = SubResource("BoxShape3D_6lqtx")
+
+[node name="TieBeam" type="StaticBody3D" parent="Greybox" unique_id=262639150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35, 0)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/TieBeam" unique_id=995446319]
+mesh = SubResource("BoxMesh_bmwme")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/TieBeam" unique_id=285065289]
+shape = SubResource("BoxShape3D_nyrqx")
+
+[node name="Altar" type="StaticBody3D" parent="Greybox" unique_id=520113611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -1.6)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/Altar" unique_id=1424978547]
+mesh = SubResource("BoxMesh_8k1av")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/Altar" unique_id=472809755]
+shape = SubResource("BoxShape3D_prpqi")
+
+[node name="Ember" type="MeshInstance3D" parent="Greybox" unique_id=456327175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -1.6)
+mesh = SubResource("SphereMesh_knk5t")
+
+[node name="InteractArea" type="Area3D" parent="." unique_id=836761367]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="Shape" type="CollisionShape3D" parent="InteractArea" unique_id=907566242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0.4)
+shape = SubResource("CylinderShape3D_r6c2q")
+
+[node name="SpawnPoint" type="Marker3D" parent="." unique_id=809734761]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 1.6)
+
+[node name="Prompt" type="CanvasLayer" parent="." unique_id=1446754085]
+
+[node name="Label" type="Label" parent="Prompt" unique_id=1532455958]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 130.0
+offset_right = 89.0
+offset_bottom = 153.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0.95, 0.9, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.85)
+theme_override_constants/outline_size = 6
+text = "Rest  ·  E / X"
+horizontal_alignment = 1

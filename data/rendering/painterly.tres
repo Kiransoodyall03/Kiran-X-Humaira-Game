@@ -1,0 +1,19 @@
+[gd_resource type="CompositorEffect" script_class="PainterlyEffect" format=3 uid="uid://dspn4yhjiowmi"]
+
+[ext_resource type="Script" path="res://scripts/rendering/painterly_effect.gd" id="1_v1ote"]
+
+[resource]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("1_v1ote")
+radius = 2
+sharpness = 8.0
+hardness = 8.0
+strength = 1.0
+edge_darkening = 0.3
+edge_threshold = 0.15
+saturation = 1.1

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CombatantConfig" format=3 uid="uid://xavka1wytlar"]
+
+[ext_resource type="Resource" path="res://data/combat/monster01_guard.tres" id="1_n3414"]
+[ext_resource type="Resource" path="res://data/combat/monster01_posture.tres" id="2_mse28"]
+[ext_resource type="Script" path="res://scripts/combat/combatant_config.gd" id="3_h86xc"]
+
+[resource]
+script = ExtResource("3_h86xc")
+max_health = 600.0
+posture = ExtResource("2_mse28")
+guard = ExtResource("1_n3414")
+lives = 2
+can_be_deathblown = true
+requires_deathblow = true

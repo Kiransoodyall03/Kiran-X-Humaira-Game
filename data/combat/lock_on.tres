@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="LockOnConfig" format=3 uid="uid://c1byvioadr0hu"]
+
+[ext_resource type="Script" path="res://scripts/combat/lock_on_config.gd" id="1_mjwkk"]
+
+[resource]
+script = ExtResource("1_mjwkk")

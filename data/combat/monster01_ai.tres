@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="LargeMonsterConfig" format=3 uid="uid://d2gsbx0j3404w"]
+
+[ext_resource type="Script" path="res://scripts/combat/monster_attack_entry.gd" id="1_gopgf"]
+[ext_resource type="Resource" path="res://data/attacks/monster01_front_swipe.tres" id="2_6i0q7"]
+[ext_resource type="Resource" path="res://data/attacks/monster01_tail_sweep.tres" id="3_hrm5r"]
+[ext_resource type="Resource" path="res://data/attacks/monster01_stomp.tres" id="4_vre0i"]
+[ext_resource type="Resource" path="res://data/attacks/monster01_charge.tres" id="5_pgnxv"]
+[ext_resource type="Script" path="res://scripts/combat/large_monster_config.gd" id="6_yh6jy"]
+
+[sub_resource type="Resource" id="Resource_fv8sd"]
+script = ExtResource("1_gopgf")
+attack = ExtResource("2_6i0q7")
+cooldown_frames = 150
+weight = 3.0
+hit_center = Vector3(0, 1.3, 5)
+hit_size = Vector3(7, 2.6, 6)
+
+[sub_resource type="Resource" id="Resource_emeqt"]
+script = ExtResource("1_gopgf")
+attack = ExtResource("3_hrm5r")
+from_front = false
+from_side = true
+from_rear = true
+cooldown_frames = 180
+weight = 2.0
+hit_center = Vector3(0, 0.8, -0.5)
+hit_size = Vector3(16, 1.6, 15)
+tracks_target = false
+
+[sub_resource type="Resource" id="Resource_3mqix"]
+script = ExtResource("1_gopgf")
+attack = ExtResource("4_vre0i")
+from_side = true
+from_rear = true
+max_range = 6.5
+cooldown_frames = 300
+weight = 1.5
+hit_center = Vector3(0, 1, 0)
+hit_size = Vector3(13, 2, 13)
+tracks_target = false
+
+[sub_resource type="Resource" id="Resource_v05ac"]
+script = ExtResource("1_gopgf")
+attack = ExtResource("5_pgnxv")
+min_range = 8.0
+max_range = 13.0
+cooldown_frames = 360
+weight = 2.0
+hit_center = Vector3(0, 1.5, 4.5)
+hit_size = Vector3(4.5, 3, 4)
+
+[resource]
+script = ExtResource("6_yh6jy")
+attacks = Array[ExtResource("1_gopgf")]([SubResource("Resource_fv8sd"), SubResource("Resource_emeqt"), SubResource("Resource_3mqix"), SubResource("Resource_v05ac")])

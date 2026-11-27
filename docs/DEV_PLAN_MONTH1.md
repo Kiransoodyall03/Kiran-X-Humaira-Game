@@ -195,6 +195,7 @@ Hours per dev per week are about 15–20. Each row is one week; P and A work at 
 **A:**
 - **Painterly look test** in `Zone01_Lighting.tscn` plus a small kit (shrine, rock, tree): hand-painted albedo, LightmapGI, fog, and a LUT.
 - P supplies the Kuwahara/CompositorEffect post-process shader. A tunes its parameters through exported variables.
+  - Done (P): `PainterlyEffect` (`scripts/rendering/painterly_effect.gd` + `shaders/painterly_kuwahara.glsl`, generalized 8-sector Kuwahara with edge darkening and saturation). Tune it live in `data/rendering/painterly.tres` (radius, sharpness, hardness, strength, edge darkening/threshold, saturation; all clamped). It runs on the heroine's Camera3D Compositor, so the sandbox and every zone get it; `ThirdPersonCamera.painterly_enabled` turns it off. Forward+ only: on Mobile, Compatibility or headless it switches itself off without errors. The shader uses a shared-memory tile and a per-group sector weight table; at the shipped radius 2 it costs about 1.8 ms GPU at 1080p on an RTX 3050 Laptop (radius 3: 3.1 ms, radius 6: 8.5 ms). Measure with `tests/perf/painterly_gpu_probe.gd` before raising the radius.
 
 **Shared:**
 - External playtest with 3–5 people. Ask open questions; record sessions; log deaths by attack ID.

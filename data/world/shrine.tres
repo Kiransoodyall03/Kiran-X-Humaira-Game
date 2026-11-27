@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="RestConfig" format=3 uid="uid://cakhf3gw6x8y0"]
+
+[ext_resource type="Script" path="res://scripts/world/rest_config.gd" id="1_4f252"]
+
+[resource]
+script = ExtResource("1_4f252")

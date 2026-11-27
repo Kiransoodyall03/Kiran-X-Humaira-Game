@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="ShortcutGateConfig" format=3 uid="uid://d2lryek8ih4ax"]
+
+[ext_resource type="Script" path="res://scripts/world/shortcut_gate_config.gd" id="1_a8bja"]
+
+[resource]
+script = ExtResource("1_a8bja")

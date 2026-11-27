@@ -4,8 +4,27 @@
 [ext_resource type="Resource" path="res://data/heroine_movement.tres" id="2_cp1pb"]
 [ext_resource type="Script" path="res://scripts/actors/third_person_camera.gd" id="3_xcycx"]
 [ext_resource type="Resource" path="res://data/heroine_camera.tres" id="4_r5ok4"]
+[ext_resource type="CompositorEffect" path="res://data/rendering/painterly.tres" id="5_udy2n"]
 [ext_resource type="Script" path="res://scripts/combat/combatant.gd" id="5_xcycx"]
 [ext_resource type="Resource" path="res://data/combat/heroine_combatant.tres" id="6_r5ok4"]
+[ext_resource type="Script" path="res://scripts/actors/player_combat.gd" id="7_8p6a1"]
+[ext_resource type="Script" path="res://scripts/combat/form_config.gd" id="8_u2xmx"]
+[ext_resource type="Resource" path="res://data/forms/greatsword.tres" id="9_rilmd"]
+[ext_resource type="Resource" path="res://data/forms/katana.tres" id="10_6uyvc"]
+[ext_resource type="Resource" path="res://data/combat/heroine_deathblow.tres" id="11_u2xmx"]
+[ext_resource type="Script" path="res://scripts/combat/hurtbox.gd" id="11_vhc8a"]
+[ext_resource type="Script" path="res://scripts/actors/corruption_meter.gd" id="12_6uyvc"]
+[ext_resource type="Resource" path="res://data/combat/corruption.tres" id="13_vhc8a"]
+[ext_resource type="Script" path="res://scripts/actors/lock_on.gd" id="15_4wvo5"]
+[ext_resource type="Resource" path="res://data/combat/lock_on.tres" id="16_vqjkl"]
+[ext_resource type="Script" path="res://scripts/actors/player_healing.gd" id="17_gst10"]
+[ext_resource type="Resource" path="res://data/combat/heals.tres" id="18_bdtl4"]
+[ext_resource type="Script" path="res://scripts/actors/player_rest.gd" id="19_8j0pl"]
+[ext_resource type="Resource" path="res://data/world/shrine.tres" id="20_jq67d"]
+[ext_resource type="AnimationLibrary" path="res://data/animation/heroine_placeholder_anims.tres" id="21_m1gg4"]
+[ext_resource type="AnimationNodeStateMachine" path="res://data/animation/heroine_anim_tree.tres" id="22_udy2n"]
+[ext_resource type="Script" path="res://scripts/animation/heroine_animation_driver.gd" id="23_2oex5"]
+[ext_resource type="Resource" path="res://data/animation/heroine_anim.tres" id="24_rsw5j"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yfpcs"]
 radius = 0.35
@@ -26,7 +45,14 @@ albedo_color = Color(0.64, 0.2, 0.16, 1)
 material = SubResource("StandardMaterial3D_8p6a1")
 size = Vector3(0.2, 0.12, 0.25)
 
-[node name="Heroine" type="CharacterBody3D" unique_id=241606311 node_paths=PackedStringArray("camera_rig", "combatant")]
+[sub_resource type="Compositor" id="Compositor_2oex5"]
+compositor_effects = Array[CompositorEffect]([ExtResource("5_udy2n")])
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4wvo5"]
+radius = 0.4
+height = 1.7
+
+[node name="Heroine" type="CharacterBody3D" unique_id=241606311 node_paths=PackedStringArray("camera_rig", "combatant", "combat", "lock_on", "healing")]
 collision_layer = 2
 collision_mask = 5
 floor_snap_length = 0.3
@@ -34,6 +60,9 @@ script = ExtResource("1_7a500")
 config = ExtResource("2_cp1pb")
 camera_rig = NodePath("CameraRig")
 combatant = NodePath("Combatant")
+combat = NodePath("PlayerCombat")
+lock_on = NodePath("LockOn")
+healing = NodePath("Healing")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2046195031]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
@@ -57,8 +86,55 @@ target = NodePath("..")
 [node name="PitchPivot" type="Node3D" parent="CameraRig" unique_id=1903488007]
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig/PitchPivot" unique_id=1130231573]
+compositor = SubResource("Compositor_2oex5")
 current = true
 
 [node name="Combatant" type="Node" parent="." unique_id=1781313127]
 script = ExtResource("5_xcycx")
 config = ExtResource("6_r5ok4")
+
+[node name="PlayerCombat" type="Node" parent="." unique_id=87951415]
+script = ExtResource("7_8p6a1")
+forms = Array[ExtResource("8_u2xmx")]([ExtResource("9_rilmd"), ExtResource("10_6uyvc")])
+deathblow = ExtResource("11_u2xmx")
+
+[node name="CorruptionMeter" type="Node" parent="." unique_id=716248000]
+script = ExtResource("12_6uyvc")
+config = ExtResource("13_vhc8a")
+
+[node name="Hurtbox" type="Area3D" parent="." unique_id=2026984860 node_paths=PackedStringArray("combatant")]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("11_vhc8a")
+combatant = NodePath("../Combatant")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" unique_id=254365799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+shape = SubResource("CapsuleShape3D_4wvo5")
+
+[node name="LockOn" type="Node" parent="." unique_id=1566029982 node_paths=PackedStringArray("camera_rig")]
+script = ExtResource("15_4wvo5")
+config = ExtResource("16_vqjkl")
+camera_rig = NodePath("../CameraRig")
+
+[node name="Healing" type="Node" parent="." unique_id=1899122697]
+script = ExtResource("17_gst10")
+config = ExtResource("18_bdtl4")
+
+[node name="Rest" type="Node" parent="." unique_id=611988696]
+script = ExtResource("19_8j0pl")
+config = ExtResource("20_jq67d")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1165607816]
+active = false
+callback_mode_process = 0
+libraries/ = ExtResource("21_m1gg4")
+tree_root = ExtResource("22_udy2n")
+parameters/dodge/blend_position = Vector2(0, 0)
+parameters/locomotion/blend_position = 0.0
+
+[node name="AnimationDriver" type="Node" parent="." unique_id=219946727 node_paths=PackedStringArray("animation_tree")]
+script = ExtResource("23_2oex5")
+config = ExtResource("24_rsw5j")
+animation_tree = NodePath("../AnimationTree")

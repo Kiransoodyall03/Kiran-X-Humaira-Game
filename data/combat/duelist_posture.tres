@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PostureConfig" format=3 uid="uid://bucjw8w0e4vx8"]
+
+[ext_resource type="Script" path="res://scripts/combat/posture_config.gd" id="1_ycy6l"]
+
+[resource]
+script = ExtResource("1_ycy6l")
+regen_per_second = 10.0
+regen_delay_frames = 150
+break_stagger_frames = 120
