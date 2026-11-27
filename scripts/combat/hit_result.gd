@@ -8,6 +8,7 @@ enum Outcome {
 	PARRIED, ## Guard pressed just in time: posture damage goes back to the attacker.
 	GUARD_BROKEN, ## A block that filled posture: the defender is staggered.
 	MISSED, ## The attack could not connect (e.g. defender dead).
+	DODGED, ## Landed during the defender's invulnerability frames (katana dodge): no effect.
 }
 
 var attack: AttackData

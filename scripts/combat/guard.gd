@@ -10,6 +10,8 @@ var config: GuardConfig
 var is_held: bool = false
 var _press_frame: int = NEVER
 var _window: int = 0
+## True after cancel(): the last press's parry window is closed early. A new press reopens.
+var _parry_cancelled: bool = false
 
 
 func _init(p_config: GuardConfig) -> void:
@@ -26,17 +28,28 @@ func press(frame: int) -> void:
 	else:
 		_window = config.parry_window_frames
 	_press_frame = frame
+	_parry_cancelled = false
 	is_held = true
 
 
-## Guard button released (or guard knocked away by a stagger).
+## Guard button released by the player. The parry window stays open (tap to parry).
 func release() -> void:
 	is_held = false
 
 
+## Guard forced down (form without guard, attack, dodge, heal, stagger, death): drops the
+## block AND closes the parry window of the last press. Mash tracking is kept.
+func cancel() -> void:
+	is_held = false
+	_parry_cancelled = true
+
+
 ## True if a hit landing on `frame` would be a parry: guard pressed within the window
-## before it (the press frame itself counts as frame 0). Holding is not required.
+## before it (the press frame itself counts as frame 0) and not cancelled since.
+## Holding is not required.
 func is_parry_active(frame: int) -> bool:
+	if _parry_cancelled:
+		return false
 	var age: int = frame - _press_frame
 	return age >= 0 and age < _window
 

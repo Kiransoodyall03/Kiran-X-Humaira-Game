@@ -26,7 +26,7 @@ P = Kiran (programmer) · A = Humaira (designer/modeler/animator)
 | `ART_SPEC.md` | A | P (co-signed week 1) |
 | `VISION.md`, `NAMING.md` | Both (edit only in the joint session; otherwise propose via comment) | — |
 | `CHARACTER_BIBLE.md`, `WORLD_BIBLE.md`, `ITEM_TEXT.md` | P | A |
-| `COMBAT_SPEC.md`, `BOSS_TEMPLATE.md` | P | A |
+| `COMBAT_SPEC.md`, `BOSS_TEMPLATE.md`, `ANIMATION_CLIPS.md` | P | A |
 | `ZONE01.md` | P (layout sections) / A (visual sections) | each other |
 | `ART_BIBLE.md` | A | P |
 

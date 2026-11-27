@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://u84ct4umouhq"]
+
+[ext_resource type="Script" path="res://scripts/actors/duelist.gd" id="1_olipy"]
+[ext_resource type="Resource" path="res://data/combat/duelist_ai.tres" id="2_4popy"]
+[ext_resource type="Script" path="res://scripts/combat/combatant.gd" id="3_h1a3r"]
+[ext_resource type="Resource" path="res://data/combat/duelist_combatant.tres" id="4_5e533"]
+[ext_resource type="Script" path="res://scripts/combat/hurtbox.gd" id="5_fme8b"]
+[ext_resource type="Script" path="res://scripts/combat/lock_on_point.gd" id="6_6pysj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w8fth"]
+radius = 0.38
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xce1l"]
+albedo_color = Color(0.3, 0.28, 0.34, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ubivs"]
+material = SubResource("StandardMaterial3D_xce1l")
+radius = 0.38
+height = 1.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_g6umn"]
+size = Vector3(0.22, 0.12, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1p3eb"]
+albedo_color = Color(0.8, 0.82, 0.85, 1)
+metallic = 0.6
+roughness = 0.35
+
+[sub_resource type="BoxMesh" id="BoxMesh_rpxyt"]
+material = SubResource("StandardMaterial3D_1p3eb")
+size = Vector3(0.05, 0.08, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0u644"]
+radius = 0.45
+height = 1.8
+
+[node name="Duelist" type="CharacterBody3D" unique_id=235900935]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_olipy")
+config = ExtResource("2_4popy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=323459897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_w8fth")
+
+[node name="Visual" type="Node3D" parent="." unique_id=1989177808]
+
+[node name="BodyMesh" type="MeshInstance3D" parent="Visual" unique_id=212234187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+mesh = SubResource("CapsuleMesh_ubivs")
+
+[node name="FacingMarker" type="MeshInstance3D" parent="Visual" unique_id=439302176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 0.36)
+mesh = SubResource("BoxMesh_g6umn")
+
+[node name="SwordMesh" type="MeshInstance3D" parent="Visual" unique_id=668029925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42, 1, 0.55)
+mesh = SubResource("BoxMesh_rpxyt")
+
+[node name="Combatant" type="Node" parent="." unique_id=1611092114]
+script = ExtResource("3_h1a3r")
+config = ExtResource("4_5e533")
+
+[node name="Hurtbox" type="Area3D" parent="." unique_id=1020032164 node_paths=PackedStringArray("combatant")]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("5_fme8b")
+combatant = NodePath("../Combatant")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" unique_id=67124313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_0u644")
+
+[node name="LockOnPoint" type="Marker3D" parent="." unique_id=1255691410 node_paths=PackedStringArray("combatant")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+script = ExtResource("6_6pysj")
+combatant = NodePath("../Combatant")
+target_size = 1.9
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=207005353]
+path_desired_distance = 0.5
+target_desired_distance = 0.5
+height = 1.8
+radius = 0.4

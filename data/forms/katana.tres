@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="FormConfig" format=3 uid="uid://bjoqb515x7euf"]
+
+[ext_resource type="Script" path="res://scripts/combat/attack_data.gd" id="1_2dmk6"]
+[ext_resource type="Resource" path="res://data/attacks/katana_light_1.tres" id="2_1usq5"]
+[ext_resource type="Resource" path="res://data/attacks/katana_light_2.tres" id="3_hyh4g"]
+[ext_resource type="Resource" path="res://data/attacks/katana_light_3.tres" id="4_75s4j"]
+[ext_resource type="Script" path="res://scripts/combat/form_config.gd" id="5_yo5uc"]
+
+[resource]
+script = ExtResource("5_yo5uc")
+id = &"katana"
+display_name = "Katana"
+hud_color = Color(0.6, 0.85, 1, 1)
+light_combo = Array[ExtResource("1_2dmk6")]([ExtResource("2_1usq5"), ExtResource("3_hyh4g"), ExtResource("4_75s4j")])
+combo_window_frames = 18
+move_speed_multiplier = 1.2
+can_guard = false
+can_dodge = true
+corruption_per_second = 4.0

@@ -24,6 +24,14 @@ enum Perilous { NONE, THRUST, SWEEP, GRAB }
 ## How far in front of the attacker the hit reaches, in meters.
 @export_range(0.0, 20.0, 0.05, "suffix:m") var reach: float = 2.5
 
+@export_group("Hitbox")
+## Width of the box swept in front of the attacker (player attacks), in meters.
+@export_range(0.1, 20.0, 0.05, "suffix:m") var hit_width: float = 1.5
+## Height of that box, from the attacker's feet, in meters.
+@export_range(0.1, 20.0, 0.05, "suffix:m") var hit_height: float = 1.8
+## Distance the attacker steps forward over startup + active frames, in meters.
+@export_range(0.0, 10.0, 0.05, "suffix:m") var lunge_distance: float = 0.0
+
 @export_group("Defence")
 @export var blockable: bool = true
 @export var deflectable: bool = true

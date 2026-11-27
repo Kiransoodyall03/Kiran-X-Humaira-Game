@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MonsterPartConfig" format=3 uid="uid://bvwbj8gawdryp"]
+
+[ext_resource type="Script" path="res://scripts/combat/monster_part_config.gd" id="1_ivq4q"]
+
+[resource]
+script = ExtResource("1_ivq4q")
+lock_priority = 2
+weakened_scale = 1.0

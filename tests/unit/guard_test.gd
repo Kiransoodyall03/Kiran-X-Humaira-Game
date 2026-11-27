@@ -67,3 +67,39 @@ func test_first_press_ever_gets_the_full_window() -> void:
 	var g: Guard = Guard.new(_config())
 	g.press(5) # early frame numbers must not look like mashing against "never"
 	assert_int(g.current_window()).is_equal(12)
+
+
+func test_cancel_closes_the_parry_window() -> void:
+	var g: Guard = Guard.new(_config())
+	g.press(100)
+	g.cancel()
+	assert_bool(g.is_held).is_false()
+	assert_bool(g.is_parry_active(100)).is_false()
+	assert_bool(g.is_parry_active(105)).is_false()
+
+
+func test_cancel_after_a_tap_release_still_closes_the_window() -> void:
+	var g: Guard = Guard.new(_config())
+	g.press(100)
+	g.release()
+	assert_bool(g.is_parry_active(103)).is_true()
+	g.cancel()
+	assert_bool(g.is_parry_active(104)).is_false()
+
+
+func test_press_after_cancel_reopens_the_window() -> void:
+	var g: Guard = Guard.new(_config())
+	g.press(100)
+	g.cancel()
+	g.press(200)
+	assert_bool(g.is_held).is_true()
+	assert_bool(g.is_parry_active(205)).is_true()
+
+
+func test_cancel_keeps_mash_tracking() -> void:
+	var g: Guard = Guard.new(_config())
+	g.press(100)
+	g.cancel()
+	g.press(110) # still mashing: cancel must not reset the penalty
+	assert_int(g.current_window()).is_equal(8)
+	assert_int(g.frames_since_press(115)).is_equal(5)

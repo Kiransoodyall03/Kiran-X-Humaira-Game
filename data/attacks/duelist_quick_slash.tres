@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://dvb3e4wileeah"]
+
+[ext_resource type="Script" path="res://scripts/combat/attack_data.gd" id="1_iqojg"]
+
+[resource]
+script = ExtResource("1_iqojg")
+id = &"duelist_quick_slash"
+display_name = "Quick slash"
+startup_frames = 18
+recovery_frames = 26
+damage = 15.0
+posture_damage = 20.0
+reach = 2.4
+hit_width = 1.6
+lunge_distance = 0.4
+tell_color = Color(1, 0.85, 0.35, 1)

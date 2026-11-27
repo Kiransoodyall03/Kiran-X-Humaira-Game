@@ -3,7 +3,10 @@
 [ext_resource type="PackedScene" path="res://scenes/actors/heroine.tscn" id="1_baoho"]
 [ext_resource type="PackedScene" path="res://scenes/actors/training_dummy.tscn" id="2_83wjq"]
 [ext_resource type="PackedScene" path="res://scenes/ui/combat_hud.tscn" id="3_s1yyb"]
+[ext_resource type="PackedScene" path="res://scenes/actors/duelist.tscn" id="3_t47af"]
+[ext_resource type="PackedScene" path="res://scenes/actors/monster01.tscn" id="4_avwy8"]
 [ext_resource type="Script" path="res://scripts/levels/sandbox_rules.gd" id="4_t47af"]
+[ext_resource type="PackedScene" path="res://scenes/world/shrine.tscn" id="6_t47af"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8obsl"]
 
@@ -90,6 +93,105 @@ size = Vector3(10, 4, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0x2vm"]
 size = Vector3(10, 4, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avwy8"]
+albedo_color = Color(0.36, 0.3, 0.3, 1)
+roughness = 0.95
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vymx4"]
+material = SubResource("StandardMaterial3D_avwy8")
+top_radius = 7.0
+bottom_radius = 7.0
+height = 0.02
+
+[sub_resource type="BoxMesh" id="BoxMesh_s1yyb"]
+size = Vector3(61, 3, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t47af"]
+size = Vector3(61, 3, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_avwy8"]
+size = Vector3(61, 3, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vymx4"]
+size = Vector3(61, 3, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vymx4"]
+size = Vector3(0.5, 3, 26.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ln18"]
+size = Vector3(0.5, 3, 26.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_37v2f"]
+size = Vector3(0.5, 3, 61)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_746b4"]
+size = Vector3(0.5, 3, 61)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7yqvh"]
+size = Vector3(0.5, 3, 26.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vwcky"]
+size = Vector3(0.5, 3, 26.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_746b4"]
+size = Vector3(25, 1, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s7tme"]
+size = Vector3(25, 1, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b0u2s"]
+size = Vector3(25, 3, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1kyke"]
+size = Vector3(25, 3, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4w3ea"]
+size = Vector3(25, 3, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8gq0r"]
+size = Vector3(25, 3, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_csv8w"]
+albedo_color = Color(0.36, 0.32, 0.28, 1)
+roughness = 0.95
+
+[sub_resource type="BoxMesh" id="BoxMesh_s08ob"]
+material = SubResource("StandardMaterial3D_csv8w")
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uhtff"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4bdms"]
+size = Vector3(50.5, 4, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6mqu6"]
+size = Vector3(50.5, 4, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0x2vm"]
+size = Vector3(50.5, 4, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t5bcb"]
+size = Vector3(50.5, 4, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hc26c"]
+size = Vector3(0.5, 4, 50.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hmhlg"]
+size = Vector3(0.5, 4, 50.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g8f4i"]
+size = Vector3(0.5, 4, 21)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wmnt1"]
+size = Vector3(0.5, 4, 21)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0nm8x"]
+size = Vector3(0.5, 4, 21)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c7k6h"]
+size = Vector3(0.5, 4, 21)
 
 [node name="Sandbox" type="Node3D" unique_id=1043977405]
 
@@ -192,15 +294,175 @@ mesh = SubResource("BoxMesh_6mqu6")
 [node name="Shape" type="CollisionShape3D" parent="Greybox/Wall" unique_id=1487013727]
 shape = SubResource("BoxShape3D_0x2vm")
 
+[node name="DuelistArena" type="MeshInstance3D" parent="Greybox" unique_id=2046908155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0.011, -20)
+mesh = SubResource("CylinderMesh_vymx4")
+
+[node name="EdgeWall_North" type="StaticBody3D" parent="Greybox" unique_id=2124658063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -30.25)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/EdgeWall_North" unique_id=1134590587]
+mesh = SubResource("BoxMesh_s1yyb")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/EdgeWall_North" unique_id=369099548]
+shape = SubResource("BoxShape3D_t47af")
+
+[node name="EdgeWall_South" type="StaticBody3D" parent="Greybox" unique_id=1752898158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 30.25)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/EdgeWall_South" unique_id=1466289750]
+mesh = SubResource("BoxMesh_avwy8")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/EdgeWall_South" unique_id=2005928762]
+shape = SubResource("BoxShape3D_vymx4")
+
+[node name="EdgeWall_East" type="StaticBody3D" parent="Greybox" unique_id=1814464171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.25, 1.5, -17.25)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/EdgeWall_East" unique_id=2124539091]
+mesh = SubResource("BoxMesh_vymx4")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/EdgeWall_East" unique_id=1086806769]
+shape = SubResource("BoxShape3D_8ln18")
+
+[node name="EdgeWall_West" type="StaticBody3D" parent="Greybox" unique_id=1587160215]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.25, 1.5, 0)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/EdgeWall_West" unique_id=1907647195]
+mesh = SubResource("BoxMesh_37v2f")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/EdgeWall_West" unique_id=1000424901]
+shape = SubResource("BoxShape3D_746b4")
+
+[node name="EdgeWall_East_South" type="StaticBody3D" parent="Greybox" unique_id=705495363]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.25, 1.5, 17.25)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/EdgeWall_East_South" unique_id=388580386]
+mesh = SubResource("BoxMesh_7yqvh")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/EdgeWall_East_South" unique_id=482523566]
+shape = SubResource("BoxShape3D_vwcky")
+
+[node name="MonsterArena" type="Node3D" parent="Greybox" unique_id=979476133]
+
+[node name="Corridor" type="StaticBody3D" parent="Greybox/MonsterArena" unique_id=1949099226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5, -0.5, 0)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/MonsterArena/Corridor" unique_id=965407360]
+mesh = SubResource("BoxMesh_746b4")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/MonsterArena/Corridor" unique_id=1301498761]
+shape = SubResource("BoxShape3D_s7tme")
+
+[node name="CorridorWall_North" type="StaticBody3D" parent="Greybox/MonsterArena" unique_id=1110789049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5, 1.5, -4.25)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/MonsterArena/CorridorWall_North" unique_id=1268255124]
+mesh = SubResource("BoxMesh_b0u2s")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/MonsterArena/CorridorWall_North" unique_id=1641229942]
+shape = SubResource("BoxShape3D_1kyke")
+
+[node name="CorridorWall_South" type="StaticBody3D" parent="Greybox/MonsterArena" unique_id=1862700600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.5, 1.5, 4.25)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/MonsterArena/CorridorWall_South" unique_id=1587445449]
+mesh = SubResource("BoxMesh_4w3ea")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/MonsterArena/CorridorWall_South" unique_id=2128656268]
+shape = SubResource("BoxShape3D_8gq0r")
+
+[node name="Floor" type="StaticBody3D" parent="Greybox/MonsterArena" unique_id=661525242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, -0.5, 0)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/MonsterArena/Floor" unique_id=1168754202]
+mesh = SubResource("BoxMesh_s08ob")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/MonsterArena/Floor" unique_id=1182952789]
+shape = SubResource("BoxShape3D_uhtff")
+
+[node name="Wall_North" type="StaticBody3D" parent="Greybox/MonsterArena" unique_id=1804548292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 2, -25.25)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/MonsterArena/Wall_North" unique_id=9172846]
+mesh = SubResource("BoxMesh_4bdms")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/MonsterArena/Wall_North" unique_id=648197066]
+shape = SubResource("BoxShape3D_6mqu6")
+
+[node name="Wall_South" type="StaticBody3D" parent="Greybox/MonsterArena" unique_id=1972697779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 2, 25.25)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/MonsterArena/Wall_South" unique_id=934361141]
+mesh = SubResource("BoxMesh_0x2vm")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/MonsterArena/Wall_South" unique_id=423444029]
+shape = SubResource("BoxShape3D_t5bcb")
+
+[node name="Wall_East" type="StaticBody3D" parent="Greybox/MonsterArena" unique_id=844473393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.25, 2, 0)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/MonsterArena/Wall_East" unique_id=283631049]
+mesh = SubResource("BoxMesh_hc26c")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/MonsterArena/Wall_East" unique_id=1340873144]
+shape = SubResource("BoxShape3D_hmhlg")
+
+[node name="Wall_West_North" type="StaticBody3D" parent="Greybox/MonsterArena" unique_id=333529896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.75, 2, -14.5)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/MonsterArena/Wall_West_North" unique_id=888421374]
+mesh = SubResource("BoxMesh_g8f4i")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/MonsterArena/Wall_West_North" unique_id=654191094]
+shape = SubResource("BoxShape3D_wmnt1")
+
+[node name="Wall_West_South" type="StaticBody3D" parent="Greybox/MonsterArena" unique_id=1962528528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.75, 2, 14.5)
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="Greybox/MonsterArena/Wall_West_South" unique_id=1528139386]
+mesh = SubResource("BoxMesh_0nm8x")
+
+[node name="Shape" type="CollisionShape3D" parent="Greybox/MonsterArena/Wall_West_South" unique_id=2116646150]
+shape = SubResource("BoxShape3D_c7k6h")
+
 [node name="Heroine" parent="." unique_id=241606311 instance=ExtResource("1_baoho")]
 
 [node name="TrainingDummy" parent="." unique_id=733201136 instance=ExtResource("2_83wjq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -14)
 
-[node name="CombatHud" parent="." unique_id=1469360738 node_paths=PackedStringArray("player", "opponent") instance=ExtResource("3_s1yyb")]
+[node name="Duelist" parent="." unique_id=235900935 instance=ExtResource("3_t47af")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -20)
+
+[node name="Monster01" parent="." unique_id=2112246821 instance=ExtResource("4_avwy8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 80, 0, 0)
+
+[node name="CombatHud" parent="." unique_id=1469360738 node_paths=PackedStringArray("player", "opponent", "player_combat", "corruption") instance=ExtResource("3_s1yyb")]
 player = NodePath("../Heroine/Combatant")
 opponent = NodePath("../TrainingDummy/Combatant")
+player_combat = NodePath("../Heroine/PlayerCombat")
+corruption = NodePath("../Heroine/CorruptionMeter")
 
-[node name="SandboxRules" type="Node" parent="." unique_id=230866303 node_paths=PackedStringArray("player")]
+[node name="SandboxRules" type="Node" parent="." unique_id=230866303 node_paths=PackedStringArray("player", "dummy", "duelist", "monster")]
 script = ExtResource("4_t47af")
 player = NodePath("../Heroine/Combatant")
+dummy = NodePath("../TrainingDummy/Combatant")
+duelist = NodePath("../Duelist/Combatant")
+monster = NodePath("../Monster01/Combatant")
+
+[node name="Shrine" parent="." unique_id=1878036530 instance=ExtResource("6_t47af")]
+transform = Transform3D(-0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.70710677, 18, 0, 18)

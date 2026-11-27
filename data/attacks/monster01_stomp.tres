@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://5rcake5ec3pa"]
+
+[ext_resource type="Script" path="res://scripts/combat/attack_data.gd" id="1_ft0ru"]
+
+[resource]
+script = ExtResource("1_ft0ru")
+id = &"monster01_stomp"
+display_name = "Stomp (area, unblockable)"
+startup_frames = 56
+active_frames = 6
+recovery_frames = 80
+damage = 35.0
+posture_damage = 40.0
+reach = 6.5
+hit_width = 13.0
+hit_height = 2.0
+blockable = false
+deflectable = false
+tell_color = Color(0.2, 0.9, 0.9, 1)

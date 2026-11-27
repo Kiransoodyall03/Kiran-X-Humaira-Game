@@ -42,6 +42,15 @@
 | Wed, async | One chat message each: done / next / blocked. |
 | Fri, 30 min | Play the latest `main` together. A shows art drops in-engine. 10-min retro: what was cut, what is at risk. |
 
+## Windows export build (P)
+1. **One-time:** install the official export templates that match the engine exactly (4.7.2 stable). In the editor: Editor → Manage Export Templates → Download and Install. Offline: download `Godot_v4.7.2-stable_export_templates.tpz` from the `4.7.2-stable` GitHub release, check it against that release's `SHA512-SUMS.txt`, and unzip its `templates/` folder's contents into `%APPDATA%\Godot\export_templates\4.7.2.stable\`.
+2. **Build** (preset "Windows Desktop" in `export_presets.cfg`, x86_64, no code signing, version 0.1.0). Create the output folder first, because Godot does not create it and the export fails with "The given export path doesn't exist":
+   `New-Item -ItemType Directory -Force builds/windows` (PowerShell) or `mkdir builds\windows` (cmd), then
+   `godot --headless --path . --export-release "Windows Desktop" builds/windows/SoulSwordGame.exe`
+   The preset excludes `tests/*`, `addons/gdUnit4/*`, `reports/*` and `docs/*`. Output: `SoulSwordGame.exe` + `SoulSwordGame.pck` (keep them together).
+3. **Check:** `builds\windows\SoulSwordGame.exe --headless --quit-after 600` exits 0 and prints no `SCRIPT ERROR`/`ERROR`. Then play it windowed once.
+4. `builds/` is gitignored. Share builds outside git (zip the folder); never commit them.
+
 ## Playtests
 - Internal every Friday. External (3–5 people) in week 4.
 - Ask open questions ("What did you think of the fight?"), never leading ones.

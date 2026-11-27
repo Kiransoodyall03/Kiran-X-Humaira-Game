@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="DeathblowConfig" format=3 uid="uid://dv3qawbyn6rge"]
+
+[ext_resource type="Script" path="res://scripts/combat/deathblow_config.gd" id="1_76ylj"]
+
+[resource]
+script = ExtResource("1_76ylj")

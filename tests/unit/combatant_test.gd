@@ -158,6 +158,70 @@ func test_guard_hold_blocks_without_a_parry_window() -> void:
 	assert_int(r.outcome).is_equal(HitResult.Outcome.BLOCKED)
 
 
+
+func test_tap_released_guard_still_parries() -> void:
+	var c: Combatant = _combatant(_config())
+	c.guard_press(100)
+	c.guard_release()
+	var r: HitResult = c.receive_attack(_attack(20.0, 10.0), null, 105)
+	assert_int(r.outcome).is_equal(HitResult.Outcome.PARRIED)
+
+
+func test_cancel_guard_closes_the_parry_window() -> void:
+	var c: Combatant = _combatant(_config())
+	c.guard_press(100)
+	c.cancel_guard() # e.g. switched to a form without guard, or started a swing
+	assert_bool(c.guard.is_held).is_false()
+	var r: HitResult = c.receive_attack(_attack(20.0, 10.0), null, 104)
+	assert_int(r.outcome).is_equal(HitResult.Outcome.HIT)
+	assert_float(c.health).is_equal(80.0)
+
+
+func test_cancel_guard_after_a_tap_release_closes_the_window() -> void:
+	var c: Combatant = _combatant(_config())
+	c.guard_press(100)
+	c.guard_release()
+	c.cancel_guard()
+	var r: HitResult = c.receive_attack(_attack(20.0, 10.0), null, 104)
+	assert_int(r.outcome).is_equal(HitResult.Outcome.HIT)
+
+
+func test_a_short_stagger_closes_the_parry_window() -> void:
+	var c: Combatant = _combatant(_config())
+	c.guard_press(100)
+	assert_bool(c.stagger(3)).is_true()
+	c.step(3)
+	assert_bool(c.is_staggered()).is_false()
+	# Still inside the 12-frame window of the press, but the stagger knocked the guard away.
+	var r: HitResult = c.receive_attack(_attack(20.0, 10.0), null, 106)
+	assert_int(r.outcome).is_equal(HitResult.Outcome.HIT)
+
+# Real physics frames tick here and _physics_process is driven by hand, so a hit that wrongly
+# marks its frame as "skip the step" (_skip_step_frame) would stretch the stagger.
+func test_hits_during_a_stagger_do_not_lengthen_it() -> void:
+	var c: Combatant = _combatant(_config(1000.0)) # hits never break posture
+	assert_bool(c.stagger(30)).is_true()
+	var frames: int = 0
+	while c.is_staggered() and frames < 100:
+		await get_tree().physics_frame
+		c.receive_attack(_attack(0.0, 10.0), null) # posture damage while staggered
+		c._physics_process(0.0)
+		frames += 1
+	assert_int(frames).is_equal(30)
+
+
+func test_posture_damage_during_a_posture_break_does_not_lengthen_it() -> void:
+	var c: Combatant = _combatant(_config())
+	c.take_posture_damage(100.0) # breaks: 60-frame stagger
+	var frames: int = 0
+	while c.is_staggered() and frames < 200:
+		await get_tree().physics_frame
+		c.take_posture_damage(5.0)
+		c._physics_process(0.0)
+		frames += 1
+	assert_int(frames).is_equal(60)
+
+
 func test_sandbox_tuning_files_load() -> void:
 	for path: String in ["res://data/combat/heroine_combatant.tres", "res://data/combat/dummy_combatant.tres"]:
 		var cfg: CombatantConfig = load(path) as CombatantConfig

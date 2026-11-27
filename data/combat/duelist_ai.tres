@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="DuelistConfig" format=3 uid="uid://dilvok7xyjciy"]
+
+[ext_resource type="Script" path="res://scripts/combat/duelist_attack_entry.gd" id="1_e8eh4"]
+[ext_resource type="Resource" path="res://data/attacks/duelist_quick_slash.tres" id="2_7q5lf"]
+[ext_resource type="Resource" path="res://data/attacks/duelist_delayed_overhead.tres" id="3_64fdx"]
+[ext_resource type="Resource" path="res://data/attacks/duelist_perilous_thrust.tres" id="4_vfaa8"]
+[ext_resource type="Script" path="res://scripts/combat/duelist_config.gd" id="5_ccoye"]
+
+[sub_resource type="Resource" id="Resource_q6llj"]
+script = ExtResource("1_e8eh4")
+attack = ExtResource("2_7q5lf")
+max_range = 2.6
+cooldown_frames = 70
+weight = 3.0
+
+[sub_resource type="Resource" id="Resource_gn8qw"]
+script = ExtResource("1_e8eh4")
+attack = ExtResource("3_64fdx")
+min_range = 1.0
+max_range = 3.0
+cooldown_frames = 180
+weight = 2.0
+
+[sub_resource type="Resource" id="Resource_cw2y1"]
+script = ExtResource("1_e8eh4")
+attack = ExtResource("4_vfaa8")
+min_range = 2.4
+max_range = 4.6
+cooldown_frames = 300
+weight = 1.5
+
+[resource]
+script = ExtResource("5_ccoye")
+attacks = Array[ExtResource("1_e8eh4")]([SubResource("Resource_q6llj"), SubResource("Resource_gn8qw"), SubResource("Resource_cw2y1")])
+fall_reset_height = -10.0

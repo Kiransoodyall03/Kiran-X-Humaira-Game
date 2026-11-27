@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="HealConfig" format=3 uid="uid://cmf0yrb1r3nb3"]
+
+[ext_resource type="Script" path="res://scripts/combat/heal_config.gd" id="1_8b62h"]
+
+[resource]
+script = ExtResource("1_8b62h")

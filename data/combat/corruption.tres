@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="CorruptionConfig" format=3 uid="uid://c0148228ia4co"]
+
+[ext_resource type="Script" path="res://scripts/combat/corruption_config.gd" id="1_m72g7"]
+
+[resource]
+script = ExtResource("1_m72g7")

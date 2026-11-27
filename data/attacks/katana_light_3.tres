@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://r3qyrjaprske"]
+
+[ext_resource type="Script" path="res://scripts/combat/attack_data.gd" id="1_fggqa"]
+
+[resource]
+script = ExtResource("1_fggqa")
+id = &"katana_light_3"
+display_name = "Katana light 3"
+startup_frames = 12
+recovery_frames = 22
+damage = 18.0
+posture_damage = 16.0
+reach = 2.4
+hit_width = 1.6
+lunge_distance = 0.8

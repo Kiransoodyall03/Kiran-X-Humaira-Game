@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="GuardConfig" format=3 uid="uid://catofi5cfqddh"]
+
+[ext_resource type="Script" path="res://scripts/combat/guard_config.gd" id="1_yheln"]
+
+[resource]
+script = ExtResource("1_yheln")
+parry_attacker_posture_multiplier = 0.6
+block_posture_multiplier = 0.8

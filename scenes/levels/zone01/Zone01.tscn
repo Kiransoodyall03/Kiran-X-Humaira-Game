@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dm0dmw6pxiuna"]
+
+[ext_resource type="PackedScene" path="res://scenes/levels/zone01/Zone01_Gameplay.tscn" id="1_5ifv7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7kaf6"]
+
+[sub_resource type="Sky" id="Sky_2048u"]
+sky_material = SubResource("ProceduralSkyMaterial_7kaf6")
+
+[sub_resource type="Environment" id="Environment_jr3hl"]
+background_mode = 2
+sky = SubResource("Sky_2048u")
+ambient_light_source = 3
+tonemap_mode = 2
+
+[node name="Zone01" type="Node3D" unique_id=1490003165]
+
+[node name="Zone01_Gameplay" parent="." unique_id=401412967 instance=ExtResource("1_5ifv7")]
+
+[node name="TEMP_PlaceholderLighting" type="Node3D" parent="." unique_id=388619494]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="TEMP_PlaceholderLighting" unique_id=1909805968]
+environment = SubResource("Environment_jr3hl")
+
+[node name="Sun" type="DirectionalLight3D" parent="TEMP_PlaceholderLighting" unique_id=1361929043]
+transform = Transform3D(0.8660254, 0.38302222, -0.32139382, 0, 0.64278764, 0.76604444, 0.5, -0.66341394, 0.5566704, 0, 20, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 120.0

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="MonsterPartConfig" format=3 uid="uid://d3olrmxie16jo"]
+
+[ext_resource type="Script" path="res://scripts/combat/posture_config.gd" id="1_ywmqh"]
+[ext_resource type="Script" path="res://scripts/combat/monster_part_config.gd" id="2_dg1s3"]
+
+[sub_resource type="Resource" id="Resource_asbjc"]
+script = ExtResource("1_ywmqh")
+max_posture = 90.0
+regen_per_second = 4.0
+regen_delay_frames = 300
+guard_regen_multiplier = 1.0
+low_health_regen_multiplier = 1.0
+break_stagger_frames = 0
+
+[resource]
+script = ExtResource("2_dg1s3")
+part_id = &"head"
+posture = SubResource("Resource_asbjc")
+damage_multiplier = 1.5
+posture_multiplier = 1.5
+lock_priority = 1
+weakens_attacks = Array[StringName]([&"monster01_charge"])
+weakened_scale = 0.6

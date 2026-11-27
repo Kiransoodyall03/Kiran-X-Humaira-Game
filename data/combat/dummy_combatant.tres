@@ -9,3 +9,6 @@ script = ExtResource("3_5pmiy")
 max_health = 200.0
 posture = ExtResource("2_nd2gc")
 guard = ExtResource("1_ird4s")
+lives = 2
+can_be_deathblown = true
+requires_deathblow = true

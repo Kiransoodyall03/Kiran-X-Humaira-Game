@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://pilbir4iug7r"]
+
+[ext_resource type="Script" path="res://scripts/combat/attack_data.gd" id="1_yvubn"]
+
+[resource]
+script = ExtResource("1_yvubn")
+id = &"greatsword_light_1"
+display_name = "Greatsword light 1"
+startup_frames = 18
+active_frames = 5
+recovery_frames = 26
+damage = 22.0
+posture_damage = 30.0
+reach = 2.6
+hit_width = 1.8
+lunge_distance = 0.6

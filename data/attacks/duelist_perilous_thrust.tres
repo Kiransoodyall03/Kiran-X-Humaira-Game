@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://cno18h6186220"]
+
+[ext_resource type="Script" path="res://scripts/combat/attack_data.gd" id="1_tqs3v"]
+
+[resource]
+script = ExtResource("1_tqs3v")
+id = &"duelist_perilous_thrust"
+display_name = "Perilous thrust"
+startup_frames = 40
+recovery_frames = 52
+damage = 30.0
+posture_damage = 35.0
+reach = 3.4
+hit_width = 0.9
+lunge_distance = 1.2
+blockable = false
+perilous = 1
+tell_color = Color(0.95, 0.15, 0.12, 1)

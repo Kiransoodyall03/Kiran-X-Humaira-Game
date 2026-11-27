@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FormConfig" format=3 uid="uid://c2gdewkf23t5s"]
+
+[ext_resource type="Script" path="res://scripts/combat/attack_data.gd" id="1_0q7i5"]
+[ext_resource type="Resource" path="res://data/attacks/greatsword_light_1.tres" id="2_amfp2"]
+[ext_resource type="Resource" path="res://data/attacks/greatsword_light_2.tres" id="3_rm8eq"]
+[ext_resource type="Resource" path="res://data/attacks/greatsword_light_3.tres" id="4_6nbf7"]
+[ext_resource type="Script" path="res://scripts/combat/form_config.gd" id="5_bya8g"]
+
+[resource]
+script = ExtResource("5_bya8g")
+id = &"greatsword"
+display_name = "Greatsword"
+hud_color = Color(0.95, 0.75, 0.45, 1)
+light_combo = Array[ExtResource("1_0q7i5")]([ExtResource("2_amfp2"), ExtResource("3_rm8eq"), ExtResource("4_6nbf7")])
+corruption_per_second = -2.0
+corruption_out_of_combat_multiplier = 2.0

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CombatantConfig" format=3 uid="uid://c0agb7ttnujb1"]
+
+[ext_resource type="Resource" path="res://data/combat/duelist_guard.tres" id="1_4axw4"]
+[ext_resource type="Resource" path="res://data/combat/duelist_posture.tres" id="2_jsypn"]
+[ext_resource type="Script" path="res://scripts/combat/combatant_config.gd" id="3_p3tvv"]
+
+[resource]
+script = ExtResource("3_p3tvv")
+max_health = 120.0
+posture = ExtResource("2_jsypn")
+guard = ExtResource("1_4axw4")
+can_be_deathblown = true
+requires_deathblow = true
