@@ -1,6 +1,6 @@
 # Asset spec (the art ↔ code contract)
 
-Owner: A · Co-signed by P in week 1 · Status: **DRAFT — sign off by Nov 30**
+Owner: A · Co-signed by P in week 1 · Status: **SIGNED by A on 2026-11-27**
 Changing anything marked 🔒 after sign-off needs both devs to agree, because P's scenes depend on it.
 
 ## Units and orientation 🔒
